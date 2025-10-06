@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Time Travel Booking Portal</title>
+</head>
+<body> 
+  <Header style="background-color:#642745;color:white;">
+  <center>
+    <h1 style="color:white;">🕒 TIME TRAVEL BOOKING PORTAL 🚀</h1>
+  </center>
+</Header>
+<center>
+<h2 style="color:#642745"><b>WELCOME TRAVELER! Choose your timeline, pack your bags, and let's break physics together!</b></h2>
+</center>
+  
+  <form action="timetravel.html" method="get">
+  
+    <fieldset>
+      <legend style="color:#642745;"><b>TRAVELER INFORMATION</b></legend>
+      <label>Full Name:</label>
+      <input type="text" id="name" name="traveler_name" placeholder="Enter your full name" required><br><br>
+
+      <label>Email:</label>
+      <input type="email" id="email" name="traveler_email" placeholder="example@mail.com" required><br><br>
+
+      <label>Phone:</label>
+      <input type="tel" id="phone" name="traveler_phone" maxlength="10" placeholder="10 digit number"><br><br>
+
+      <label>Current Timeline (Starting Point):</label>
+    <input type="text" value="2025 - Earth" readonly>
+    </fieldset>
+    <br>
+
+
+    <fieldset>
+	    <legend style="color:#642745;"><b>TRAVEL DETAILS</b></legend>
+     <label>Travel Mode:</label>
+    <input type="radio" name="mode" required>Past
+    <input type="radio" name="mode" required>Future<br><br>
+
+    <label>Enter Year:</label>
+    <input type="number" placeholder="Ex: 3025 or 1850" required><br><br>
+
+    <label>Date & Time of Arrival:</label>
+    <input type="datetime-local" required><br><br>
+
+    <label>Destination Place:</label>
+    <input type="text" placeholder="Ex: Paris, Moon, Ancient India" required><br><br>
+    </fieldset>
+    <br>
+	<fieldset>
+	<legend style="color:#642745;"><b>TRAVELER SKILLS</b></legend>
+    <input type="checkbox"> Fire-making 🔥<br>
+    <input type="checkbox"> Dinosaur Riding 🦖<br>
+    <input type="checkbox"> Technology Hacking 💻<br>
+    <input type="checkbox"> Weapon Handling 🔫<br>
+</fieldset>
+<br>
+   
+    <fieldset>
+      <legend style="color:#642745;"><b>MACHINE & PORTAL SETTINGS</b></legend>
+
+      <h3>Your Time Machine</h3>
+      <img src="assets/img1.jpg" alt="Futuristic Machine" width="350" border="1"><br><br>
+        <label>Select Machine Type:</label>
+    <select>
+      <option selected disabled>--Choose your time machine--</option><br><br>
+      <option>TARDIS 🚪</option>
+      <option>DeLorean 🚗</option>
+      <option>Quantum Portal ⚡</option>
+      <option>Wormhole Tunnel 🌌</option>
+    </select><br><br>
+
+    <label>Portal Color Preference:</label>
+    <input type="color"><br><br>
+
+    <label>Risk Level:</label>
+    <input type="range" min="1" max="100"><br><br>
+    </fieldset>
+    <br>
+	<fieldset>
+<legend style="color:#642745;"><b>FUTURE ACCESS PASS</b></legend>
+    <label>Enter Future Passcode:</label>
+    <input type="password" placeholder="Secret Key"><br><br>
+
+    <p>⚠️ Without this passcode, you may be stuck in future forever 😅</p>
+	</fieldset>
+	<br>
+
+
+    <fieldset>
+      <legend style="color:#642745;"><b>ADD-ON PASS</b></legend>
+
+      <label>Select Extras:</label><br>
+      <input type="checkbox" name="extras" value="passport"> Future Passport<br>
+      <input type="checkbox" name="extras" value="translator"> Alien Translator<br>
+      <input type="checkbox" name="extras" value="food"> Universal Food Card<br>
+      <input type="checkbox" name="extras" value="memories"> Memory Backup Drive<br>
+    </fieldset>
+    <br>
+	
+<fieldset>
+ <legend style="color:#642745;"><b>UPLOADS</b></legend>
+    <label>Upload ID Proof:</label>
+    <input type="file" accept=".jpg,.png,.pdf" required><br><br>
+    <label>Upload Travel Agreement:</label>
+    <input type="file" accept=".pdf" required><br><br>
+</fieldset>
+<br>
+
+    <fieldset>
+      <legend style="color:#642745;"><b>TIMELINE PROTECTION</b></legend>
+      <img src="assets/img2.jpg" alt="Timeline Shield" ><br><br>
+
+      <label>Select Plan:</label>
+      <select>
+        <option>No Insurance</option>
+        <option>Basic – Lost in Past Cover</option>
+        <option>Premium – Future Shock Safety</option>
+        <option>Elite – Dinosaur Attack + Robot War Protection</option>
+      </select>
+    </fieldset>
+    <br>
+
+
+    <fieldset>
+      <legend style="color:#642745;"><b>WARNING</b></legend>
+      <h3 style="color:red;">⚠️ Warning!</h3>
+	  <ul>
+      <li>Do not interact with your past self.</li>
+      <li>Do not bring dinosaurs back.</li>
+      <li>Future gadgets must be declared at customs!</li>
+	  </ul>
+    </fieldset>
+    <br>
+	
+    <center>
+      <input type="submit" value="Book Now" style="background-color:#642745;color:white;">
+      <input type="reset" value="Reset Form" style="background-color:#642745;color:white;">
+    </center>
+
+  </form>
+  <br><br>
+  <center>
+   <h2 style="color: #642745;">TIME TRAVEL BOOKING RECORDS</h2>
+  <table border="2" cellpadding="20" cellspacing="15">
+  <thead style="background-color: #642745;color:white;">
+    <th>BOOKING ID</th>
+    <th>TRAVELER NAME</th>
+    <th>ORIGIN</th>
+    <th>DESTINATION</th>
+    <th>TRAVEL DATE</th>
+    <th>RETURN DATE</th>
+    <th>COMPANIONS</th>
+    <th>STATUS</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TTB1</td>
+      <td>Naveena</td>
+      <td>2025-Earth</td>
+      <td>3025-Paris</td>
+      <td>23-sep-2025</td>
+      <td>25-sep-2025</td>
+      <td>0</td>
+      <td>Confirmed</td>
+    </tr>
+    <tr>
+      <td>TTB2</td>
+      <td>Marzoo</td>
+      <td>2025-Earth</td>
+      <td>2030-Moon</td>
+      <td>30-sep-2025</td>
+      <td>3-oct-2025</td>
+      <td>2</td>
+      <td>Pending</td>
+    </tr>
+    <tr>
+      <td>TTB3</td>
+      <td>Jshree</td>
+      <td>2025-Earth</td>
+      <td>1900-Earth</td>
+      <td>30-sep-2025</td>
+      <td>3-oct-2025</td>
+      <td>0</td>
+      <td>Confirmed</td>
+    </tr>
+  </tbody>
+</table>
+
+  <footer style="background-color:#642745;color:white;">
+    
+      <p><b>&copy; 3025 Time Travel Authority | All rights reserved</b></p>
+    </center>
+  </footer>
+
+</body>
+</html>
+
+

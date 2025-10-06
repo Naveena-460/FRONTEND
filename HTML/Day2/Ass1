@@ -1,0 +1,38 @@
+ASSIGNMENT 1:
+IDENTIFY LIST AND ELEMENTS
+
+WEBPAGE:https://www.w3schools.com/html/
+
+Block-Level Elements
+
+<div> → Block container, starts on a new line and takes full width.
+
+<h1> → Heading, always starts on a new line and occupies full width.
+
+<p> → Paragraph, block element, adds space before and after itself.
+
+<nav> → Block element that contains navigation links.
+
+<ul> → Unordered list, block element, stacks items vertically.
+
+<li> → List item inside a list, displayed as block elements one after another.
+
+<hr> → Horizontal rule, block element that creates a line across full width.
+
+<picture> → Block container for images (helps in responsive images).
+
+<iframe> → Inline frame, but behaves like a block in layout (new line, fixed box).
+
+<script> → Technically not visible content, but it is block by default in flow.
+
+Inline Elements
+
+<a> → Anchor tag, inline by default, fits inside a line.
+
+<span> → Generic inline container for styling text.
+
+<strong> → Makes text bold, stays inline with text.
+
+<br> → Line break, inline element used within text flow.
+
+<img> → Image, inline element, appears within text.

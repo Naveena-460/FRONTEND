@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 200px auto; 
+      grid-template-rows: 60px auto;
+      height: 100vh;
+    }
+
+    .header {
+      grid-column: 1 / span 2; 
+      grid-row: 1;
+      background: #68405a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+.nav a{
+    font-weight: bold;
+    color:white;
+     text-decoration:none; 
+     margin-left:20px;
+}
+.logo
+{
+ font-weight: bold;    
+}
+.sidebar {
+      grid-column: 1;
+      grid-row: 2;
+      background:  #68405a;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 2px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">My Dashboard</div>
+      <div class="nav">
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+    <div class="sidebar">
+      <a href="#">Home</a>
+      <a href="#">Users</a>
+      <a href="#">Reports</a>
+      <a href="#">Analytics</a>
+    </div>
+    </div>
+  </div>
+</body>
+</html>

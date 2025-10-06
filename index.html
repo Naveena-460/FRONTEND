@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frontend Daily Tasks</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f4f6fb, #e3eaf5);
+    
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #451d49ff;
+    margin-bottom: 25px;
+  }
+
+  /* Today's task card */
+  .today {
+    background: #ffffff;
+    padding: 20px;
+    border-left: 6px solid #451d49ff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    animation: glow 1s infinite alternate;
+    width:50%;
+    margin-left:300px;
+    text-align:center;
+  }
+
+  @keyframes glow {
+    from { box-shadow: 0 0 6px #451d49ff; }
+    to { box-shadow: 0 0 16px #451d49ff; }
+  }
+
+  .today a {
+   
+    display:inline-block;
+    padding: 10px 15px;
+    background: #451d49ff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .today a:hover { background: #451d49ff; }
+
+  /* Collapsible for old tasks */
+  details {
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 15px;
+      width:45%;
+      margin-left:350px;
+  }
+
+  summary {
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 15px 20px;
+    background: #451d49ff;
+    color: #fff;
+     border-radius:12px; 
+  }
+
+  details[open] summary { background:#451d49ff ;}
+
+  .content {
+    padding: 15px 25px;
+    background: #f9fafc;
+   
+  }
+
+  .content a {
+    display: inline-block;
+    margin: 5px 10px 5px 0;
+    padding: 8px 15px;
+    background: #451d49ff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .content a:hover { background:#451d49ff; }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+  }
+  header{
+    background-color:#451d49ff;
+padding:5px;
+  }
+</style>
+</head>
+<body>
+<header>
+<h1>FRONTEND TASK DASHBOARD</h1>
+</header>
+<!-- 🔹 TODAY'S TASK (Day 14) -->
+<h2> TODAY'S TASK </h2>
+<div class="today">
+  <h3>Day 14 – CSS Units(px,em,rem,%,vh,vw),Responsive Basics(media queries)</h3>
+  <p>Click below to open today’s files 👇</p>
+  <a href="index.html" target="_blank">Task</a>
+  <a href="NOTES/Day14.docx" download>Notes</a>
+</div>
+
+<h2> PREVIOUS TASKS</h2>
+
+<!-- 🔹 PREVIOUS TASKS -->
+<details>
+  <summary>Day 1-Introduction,Basic Structure(DOCTYPE,html,head,body,Root,Container)</summary>
+  <div class="content">
+    <a href="HTML/Day1.html" target="_blank">Task</a>
+    <a href="NOTES/Day1.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 2 – Block-level vs Inline Elements, Common Tags (p, h1-h6, div, span, etc.)</summary>
+  <div class="content">
+    <a href="HTML/Day2/Ass2.html" target="_blank">Task1</a>
+    <a href="HTML/Day2/Ass3.html" target="_blank">Task2</a>
+    <a href="NOTES/Day2.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 3 – Semantic Tags</summary>
+  <div class="content">
+    <a href="HTML/Day3.html" target="_blank">Task</a>
+    <a href="NOTES/Day3.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 4–HTML Attributes-Wrapping & grouping</summary>
+  <div class="content">
+    <a href="HTML/Day4.html" target="_blank">Task</a>
+    <a href="NOTES/Day4.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 5–HTML Forms: input types, labels, placeholders, required, basic form validation</summary>
+  <div class="content">
+    <a href="HTML/Day5.html" target="_blank">Task</a>
+    <a href="NOTES/Day5.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 6-HTML Form Continue</summary>
+  <div class="content">
+    <a href="HTML/Day6/Time.html" target="_blank">Task</a>
+    <a href="NOTES/Day6.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 7–HTML Table</summary>
+  <div class="content">
+    <a href="HTML/Day7/table.html" target="_blank">Task</a>
+    <a href="NOTES/Day7.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 8-HTML Meta Tags and SEO Based web page making–</summary>
+  <div class="content">
+    <a href="HTML/Day8/seo.html" target="_blank">Task</a>
+    <a href="NOTES/Day8.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 9–CSS Intro and Connections</summary>
+  <div class="content">
+    <a href="NOTES/Day9.docx" target="_blank">Task</a>
+    <a href="NOTES/Day9.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 10-Box Model: margin, padding, border, content </summary>
+  <div class="content">
+    <a href="CSS/Day10.html" target="_blank">Task</a>
+    <a href="NOTES/Day10.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 11-Flexbox Basics: display flex, justify-content, align-items, flex-direction, gap </summary>
+  <div class="content">
+    <a href="CSS/Day11/webpage.html" target="_blank">Task</a>
+    <a href="NOTES/Day11.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 12-Grid System and design</summary>
+  <div class="content">
+    <a href="CSS/Day12.html" target="_blank">Task</a>
+    <a href="NOTES/Day12.docx" download>Notes</a>
+  </div>
+</details>
+
+<details>
+  <summary>Day 13- Colors, Backgrounds, Fonts, Text Styles </summary>
+  <div class="content">
+    <a href="CSS/Day13.html" target="_blank">Task</a>
+    <a href="NOTES/Day13.docx" download>Notes</a>
+  </div>
+</details>
+
+
+
+<footer>
+  © 2025 Naveena – Frontend Practice Dashboard
+</footer>
+
+</body>
+</html>

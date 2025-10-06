@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Background</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url("https://picsum.photos/1200/800");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+
+    .box h1 {
+      font-size: 2rem; /* uses rem */
+   
+    }
+
+    .box p {
+      font-size: 1em; /* depends on parent font */
+    }
+    .box input 
+    {
+      border-radius:20px;
+      padding: 10px;
+    }
+    .box input[type="submit"]
+    {
+        background-color:black;
+        color:white;
+    }
+  </style>
+</head>
+<body>
+    <form>
+  <div class="box">
+    <h1>Sign In</h1>
+    <label>USER NAME:</label>
+    <input type="text" placeholder="username" required><br><br>
+    <label>PASSWORD:</label>
+    <input type="password" placeholder="password" required><br><br>
+    <input type="submit" value="Sign in">
+  </div>
+  </form>
+</body>
+</html>

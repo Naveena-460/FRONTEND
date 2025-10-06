@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>Assignment 3 – Visual Differentiation</title>
+    <style>
+        section {
+            background-color: lavender; 
+            padding: 15px;
+            margin: 15px 0;
+        }
+        h2, p {
+            background-color: lightblue;
+            padding: 5px;
+        }
+
+        span, a {
+            background-color: purple; 
+            color: white;
+            padding: 2px 5px;
+        }
+        div {
+            background-color: purple; 
+            color: white;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Visual Difference between Block and Inline Elements</h1>
+
+    <section>
+        <h2>About Paris</h2>
+        <p>
+            Paris is the capital of France and is called the 
+            <span>City of Light</span>. One of the most popular attractions is the 
+            <a href="#">Eiffel Tower</a>.
+        </p>
+
+        <p>
+            Visitors also enjoy the <span>Louvre Museum</span>, 
+            <span>Notre-Dame Cathedral</span>, and delicious French cuisine.
+        </p>
+    </section>
+
+    <section>
+        <h2>Explanation</h2>
+        <p>
+            Block-level elements like <b>&lt;section&gt;</b>, <b>&lt;h2&gt;</b>, and <b>&lt;p&gt;</b> 
+            are shown with a blue background. They take the full width of the page.
+        </p>
+        <p>
+            Inline elements like <span>&lt;span&gt;</span> and 
+            <a href="#">&lt;a&gt;</a> are shown in yellow. 
+            They only cover the text inside them and do not break into a new line.
+        </p>
+    </section>
+<h2>AFTER REPLACING</h2>
+<section>
+        <h2>About Paris</h2>
+        <p>
+            Paris is the capital of France and is called the 
+        </p>
+        <div>City of Light</div>
+        <p>One of the most popular attractions is the</p>
+        <div>Eiffel Tower</div>
+
+        <p>Visitors also enjoy:</p>
+        <div>Louvre Museum</div>
+        <div>Notre-Dame Cathedral</div>
+        <p>and delicious French cuisine.</p>
+    </section>
+
+</body>
+</html>

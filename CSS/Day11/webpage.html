@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML & CSS Detailed Notes</title>
+  <link rel="stylesheet" href="webpage.css">
+  <meta name="description" content="Comprehensive HTML & CSS notes with examples: structure, tags, forms, tables, SEO, box-model, flexbox.">
+  <meta name="keywords" content="HTML notes, CSS notes, Box model, Flexbox, Forms, Semantic HTML, SEO">
+  <meta name="author" content="You">
+</head>
+<body>
+  <div class="container">
+    <aside class="toc">
+      <h3>Topics</h3>
+      <nav>
+        <ul>
+          <li><a href="#structure">HTML Basic Structure</a></li>
+          <li><a href="#doctype">Doctype & Root Elements</a></li>
+          <li><a href="#block-inline">Block vs Inline</a></li>
+          <li><a href="#semantic">Semantic Tags</a></li>
+          <li><a href="#attributes">Attributes</a></li>
+          <li><a href="#forms">HTML Forms</a></li>
+          <li><a href="#tables">HTML Tables</a></li>
+          <li><a href="#meta-seo">Meta Tags & SEO</a></li>
+          <li><a href="#css-intro">CSS</a></li>
+          <li><a href="#box-model">Box Model</a></li>
+          <li><a href="#flexbox">Flexbox Basics</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="notes">
+      <header class="page-header">
+        <h1 style="text-align:center;">HTML & CSS</h1>
+      </header>
+
+      <!-- HTML Basic Structure -->
+      <section id="structure">
+        <h2>HTML Basic Structure</h2>
+        <p> Every HTML file has a basic skeleton — doctype, html, head, body. This tells the browser how to render the page and where metadata and visible content go.</p>
+
+        <h3>Example</h3>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;I Mizz uh!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>Explanation</h3>
+        <ul>
+          <li><code>&lt;!DOCTYPE html&gt;</code> — declares HTML5 document type (browser mode).</li>
+          <li><code>&lt;html&gt;</code> — root element. Use <code>lang</code> for the language (important for accessibility & SEO).</li>
+          <li><code>&lt;head&gt;</code> — metadata, title, links to CSS, scripts that run before page render.</li>
+          <li><code>&lt;body&gt;</code> — visible content: headings, paragraphs, images, forms, etc.</li>
+        </ul>
+      </section>
+
+      <!-- Doctype & root -->
+      <section id="doctype">
+        <h2>Doctype, Root & Document Flow</h2>
+        <p>Browsers use the doctype to select rendering mode (standards mode vs quirks mode). Modern pages use HTML5 doctype (<code>&lt;!DOCTYPE html&gt;</code>).</p>
+
+        <h3>Head contents</h3>
+        <p>Common head elements:</p>
+        <pre><code>&lt;meta charset="utf-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;title&gt;Page Title&lt;/title&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+      </section>
+
+      <!-- Block vs Inline -->
+      <section id="block-inline">
+        <h2>Block-level vs Inline Elements</h2>
+        <p><strong>Block-level</strong> elements create a block/box and usually start on a new line. They can contain other block and inline elements.</p>
+        <p><strong>Inline</strong> elements do not start on new lines; they sit inside lines and only take the width needed.</p>
+
+        <h3>Examples</h3>
+        <pre><code>&lt;!-- Block examples --&gt;
+&lt;div&gt;Container (block)&lt;/div&gt;
+&lt;p&gt;Paragraph (block)&lt;/p&gt;
+
+&lt;!-- Inline examples --&gt;
+&lt;span&gt;inline text&lt;/span&gt;
+&lt;a href="#"&gt;link&lt;/a&gt;</code></pre>
+
+    
+      </section>
+
+      <!-- Semantic tags -->
+      <section id="semantic">
+        <h2>Semantic vs Non-Semantic Tags</h2>
+        <p>Semantic tags describe their content. Search engines & assistive tech (screen readers) benefit from semantics.</p>
+
+        <h3>Common semantic tags</h3>
+        <ul>
+          <li><code>&lt;header&gt;</code> — page or section header</li>
+          <li><code>&lt;nav&gt;</code> — navigation links</li>
+          <li><code>&lt;main&gt;</code> — main document content (one per page)</li>
+          <li><code>&lt;article&gt;</code> — a self-contained composition (blog post)</li>
+          <li><code>&lt;section&gt;</code> — related content group</li>
+          <li><code>&lt;aside&gt;</code> — tangential content (sidebar)</li>
+          <li><code>&lt;footer&gt;</code> — page/section footer</li>
+        </ul>
+
+        <h3>Example structure</h3>
+        <pre><code>&lt;body&gt;
+  &lt;header&gt;&lt;h1&gt;Site Name&lt;/h1&gt;&lt;/header&gt;
+  &lt;nav&gt;...menu...&lt;/nav&gt;
+  &lt;main&gt;
+    &lt;article&gt;...post...&lt;/article&gt;
+    &lt;aside&gt;...related links...&lt;/aside&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;Copyright info&lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+
+        <h3>When to use non-semantic tags</h3>
+        <p>Use <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> when no semantic tag fits; but prefer semantic tags where possible.</p>
+      </section>
+
+      <!-- Attributes -->
+      <section id="attributes">
+        <h2>HTML Attributes</h2>
+        <p>Attributes add extra info to elements. Syntax: <code>&lt;tag attribute="value"&gt;</code>.</p>
+
+        <h3>Important attributes</h3>
+        <ul>
+          <li><code>id</code> — unique identifier for element (useful for JS/CSS anchor links)</li>
+          <li><code>class</code> — reusable class names for CSS/JS</li>
+          <li><code>src</code> — source for images/scripts</li>
+          <li><code>href</code> — link URL</li>
+          <li><code>alt</code> — alternative text for images (accessibility)</li>
+          <li><code>title</code> — tooltip text</li>
+          <li><code>data-*</code> — custom data attributes for JS</li>
+        </ul>
+
+        <h3>Example</h3>
+        <pre><code>&lt;img src="photo.jpg" alt="Young tree in a field" id="hero" class="rounded"&gt;
+&lt;a href="https://example.com" target="_blank" title="Open example"&gt;Visit&lt;/a&gt;</code></pre>
+
+        <h3>Best practices</h3>
+        <ul>
+          <li>Always include meaningful <code>alt</code> for images (unless decorative: use empty alt <code>alt=""</code>).</li>
+          <li>Use semantic class names (BEM or readable names).</li>
+        </ul>
+      </section>
+
+      <!-- Forms -->
+      <section id="forms">
+        <h2>HTML Forms</h2>
+        <p>Forms collect user input. Main attributes on <code>&lt;form&gt;</code>:</p>
+        <ul>
+          <li><code>action</code> — server URL to submit to</li>
+          <li><code>method</code> — "GET" or "POST"</li>
+          <li><code>enctype</code> — encode type for file uploads (e.g., <code>multipart/form-data</code>)</li>
+        </ul>
+
+        <h3>Common input types</h3>
+        <pre><code>&lt;input type="text"&gt;
+&lt;input type="email"&gt;
+&lt;input type="password"&gt;
+&lt;input type="number" min="1" max="100"&gt;
+&lt;input type="date"&gt;
+&lt;input type="checkbox"&gt;
+&lt;input type="radio"&gt;
+&lt;textarea&gt;&lt;/textarea&gt;
+&lt;select&gt;&lt;option&gt;...&lt;/option&gt;&lt;/select&gt;
+&lt;input type="file"&gt;
+&lt;button type="submit"&gt;Submit&lt;/button&gt;</code></pre>
+
+        <h3>Labels & accessibility</h3>
+        <p>Always associate labels with inputs using <code>for</code> (id of input) or wrap input inside label.</p>
+        <pre><code>&lt;label for="email"&gt;Email&lt;/label&gt;
+&lt;input id="email" type="email" name="email" required&gt;</code></pre>
+
+        <h3>Required & basic validation (HTML)</h3>
+        <p>Use <code>required</code>, <code>pattern</code>, <code>min</code>/<code>max</code>, and input types for built-in validation.</p>
+        <pre><code>&lt;input type="text" name="username" required pattern="[A-Za-z0-9]{3,15}" title="3-15 letters/numbers"&gt;</code></pre>
+
+        <h3>Complete sample form</h3>
+        <pre><code>&lt;form action="/submit" method="post"&gt;
+  &lt;label for="name"&gt;Full name:&lt;/label&gt;
+  &lt;input id="name" name="name" type="text" placeholder="Your name" required&gt;
+
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input id="email" name="email" type="email" placeholder="you@example.com" required&gt;
+
+  &lt;label&gt;Gender:&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="gender" value="male"&gt; Male&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="gender" value="female"&gt; Female&lt;/label&gt;
+
+  &lt;label for="about"&gt;About you:&lt;/label&gt;
+  &lt;textarea id="about" name="about" rows="4"&gt;&lt;/textarea&gt;
+
+  &lt;label for="resume"&gt;Resume (PDF):&lt;/label&gt;
+  &lt;input id="resume" name="resume" type="file" accept=".pdf"&gt;
+
+  &lt;button type="submit"&gt;Apply&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h3>Notes on security & UX</h3>
+        <ul>
+          <li>Always do server-side validation too — client-side HTML validation can be bypassed.</li>
+          <li>For better UX, show clear error messages with JS and preserve user input on errors.</li>
+          <li>Use appropriate <code>type</code> for mobile keyboards (e.g., <code>email</code>, <code>tel</code>, <code>number</code>).</li>
+        </ul>
+      </section>
+
+      <!-- Tables -->
+      <section id="tables">
+        <h2>HTML Tables</h2>
+        <p>Tables display tabular data. Use semantic tags: <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>.</p>
+
+        <h3>Example</h3>
+        <pre><code>&lt;table&gt;
+  &lt;caption&gt;Student Marks&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Reg No&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Marks&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;S001&lt;/td&gt;&lt;td&gt;Anu&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;S002&lt;/td&gt;&lt;td&gt;Karthi&lt;/td&gt;&lt;td&gt;78&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td colspan="2"&gt;Average&lt;/td&gt;&lt;td&gt;81.5&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+        <h3>Accessibility tips</h3>
+        <ul>
+          <li>Use <code>scope="col"</code> or <code>scope="row"</code> on <code>&lt;th&gt;</code> for screen readers.</li>
+          <li>Add a <code>&lt;caption&gt;</code> describing the table.</li>
+        </ul>
+      </section>
+
+      <!-- Meta & SEO -->
+      <section id="meta-seo">
+        <h2>Meta Tags & SEO Basics</h2>
+        <p>Meta tags in the <code>&lt;head&gt;</code> provide page metadata for search engines and social previews.</p>
+
+        <h3>Important meta tags</h3>
+        <pre><code>&lt;meta name="description" content="Short page summary (150-160 chars)"&gt;
+&lt;meta name="keywords" content="HTML, CSS, tutorial"&gt;
+&lt;meta name="author" content="Your Name"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
+
+        <h3>Open Graph for social sharing</h3>
+        <pre><code>&lt;meta property="og:title" content="Page Title"&gt;
+&lt;meta property="og:description" content="A longer description for social cards"&gt;
+&lt;meta property="og:image" content="https://example.com/preview.jpg"&gt;
+&lt;meta property="og:url" content="https://example.com/page"&gt;</code></pre>
+
+        <h3>SEO best practices (quick)</h3>
+        <ul>
+          <li>Use meaningful & unique <code>&lt;title&gt;</code> and <code>meta description</code> per page.</li>
+          <li>Use semantic headings (<code>h1</code> once, then <code>h2</code>, <code>h3</code>...) and structure content well.</li>
+          <li>Optimize images (use <code>alt</code>, compress images, use modern formats like WebP).</li>
+          <li>Make pages mobile-friendly (responsive).</li>
+        </ul>
+      </section>
+
+      <!-- CSS Intro -->
+      <section id="css-intro">
+        <h2>CSS — Introduction & Connections</h2>
+        <p>CSS styles HTML. Ways to include CSS:</p>
+        <ol>
+          <li><strong>External CSS</strong> — recommended: <code>&lt;link rel="stylesheet" href="style.css"&gt;</code></li>
+          <li><strong>Internal CSS</strong> — inside <code>&lt;style&gt;</code> in head (page-specific)</li>
+          <li><strong>Inline CSS</strong> — inside element <code>&lt;div style="color:red"&gt;</code> (avoid for maintainability)</li>
+        </ol>
+
+        <h3>Selector basics</h3>
+        <pre><code> element selector  p { color: #333; }
+ class selector  .card { padding: 10px; }
+  id selector  #main-title { font-size: 2rem; }</code></pre>
+
+        <h3>Specificity (short)</h3>
+        <p>Inline style &gt; id &gt; class &gt; element. Use this to reason why some CSS rules override others.</p>
+      </section>
+
+      <!-- Box model -->
+      <section id="box-model">
+        <h2>Box Model (margin, border, padding, content)</h2>
+        <p>Every HTML element is a box. The box model layers:</p>
+        <ol>
+          <li><strong>Content</strong> — width/height</li>
+          <li><strong>Padding</strong> — space inside border</li>
+          <li><strong>Border</strong> — visible border</li>
+          <li><strong>Margin</strong> — space outside border</li>
+        </ol>
+
+        <h3>CSS example</h3>
+        <pre><code>.box {
+  width: 200px;        /* content width */
+  padding: 20px;       /* inside */
+  border: 4px solid #333;
+  margin: 10px;        /* outside */
+}</code></pre>
+
+        <h3>box-sizing property</h3>
+        <p>By default, width applies to content only. Use <code>box-sizing: border-box;</code> to include padding & border inside width (easier to layout).</p>
+        <pre><code>*, *::before, *::after { box-sizing: border-box; }</code></pre>
+      </section>
+
+      <!-- Flexbox -->
+      <section id="flexbox">
+        <h2>Flexbox Basics</h2>
+        <p>Flexbox is for 1-dimensional layouts (row or column). Use it to align and space items easily.</p>
+
+        <h3>Important properties</h3>
+        <ul>
+          <li><code>display: flex;</code> — enable flex on container</li>
+          <li><code>flex-direction</code> — row | column</li>
+          <li><code>justify-content</code> — main axis alignment (center, space-between, flex-start...)</li>
+          <li><code>align-items</code> — cross-axis alignment (center, stretch, flex-start...)</li>
+          <li><code>gap</code> — space between flex items</li>
+          <li><code>flex-wrap</code> — wrap items to next line</li>
+        </ul>
+
+        <h3>Example: center items</h3>
+        <pre><code>.container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  height: 200px;
+}</code></pre>
+
+        <h3>Card layout example</h3>
+        <pre><code>.cards { display: flex; gap: 20px; flex-wrap: wrap; }
+.card { flex: 1 1 220px; padding: 12px; border: 1px solid #ddd; }</code></pre>
+
+        <p>Try changing <code>flex-direction</code> to <code>column</code> or setting <code>flex: 0 0 300px</code> for fixed width cards.</p>
+      </section>
+
+      <footer class="notes-footer">
+       @Copyright notes
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
