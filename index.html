@@ -6,104 +6,127 @@
 <title>Frontend Daily Tasks</title>
 <style>
   body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #f4f6fb, #e3eaf5);
-    
-  }
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f4f6fb, #e3eaf5);
+  margin: 0;
+  padding: 0;
+  color: #333;
+  box-sizing: border-box;
+}
 
-  h1 {
-    text-align: center;
-    color: white;
+header {
+  background-color: #451d49ff;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+  color: #451d49ff;
+  margin-bottom: 25px;
+}
+
+/* Today's task card */
+.today {
+  background: #ffffff;
+  padding: 20px;
+  border-left: 6px solid #451d49ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin: 0 auto 30px auto; /* Center horizontally */
+  animation: glow 1s infinite alternate;
+  width: 90%;
+  max-width: 600px; /* limit card width */
+  text-align: center;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 6px #451d49ff; }
+  to { box-shadow: 0 0 16px #451d49ff; }
+}
+
+.today a {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #451d49ff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.today a:hover { background: #2d1331; }
+
+/* Collapsible for old tasks */
+details {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  margin: 0 auto 15px auto;
+  width: 90%;
+  max-width: 600px; /* same width as today's card */
+}
+
+summary {
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 15px 20px;
+  background: #451d49ff;
+  color: #fff;
+  border-radius: 12px;
+}
+
+details[open] summary { background: #2d1331; }
+
+.content {
+  padding: 15px 25px;
+  background: #f9fafc;
+  border-radius: 0 0 12px 12px;
+}
+
+.content a {
+  display: inline-block;
+  margin: 5px 10px 5px 0;
+  padding: 8px 15px;
+  background: #451d49ff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.content a:hover { background: #2d1331; }
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #666;
+  padding-bottom: 20px;
+}
+
+/* 📱 Responsive section */
+@media (max-width: 768px) {
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+  summary { font-size: 16px; }
+  .today, details {
+    width: 95%;
+    padding: 15px;
+  }
+  .today a, .content a {
+    display: block;
+    width: 100%;
     margin-bottom: 10px;
-  }
-
-  h2 {
     text-align: center;
-    color: #451d49ff;
-    margin-bottom: 25px;
   }
+}
 
-  /* Today's task card */
-  .today {
-    background: #ffffff;
-    padding: 20px;
-    border-left: 6px solid #451d49ff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
-    animation: glow 1s infinite alternate;
-    width:50%;
-    margin-left:300px;
-    text-align:center;
-  }
-
-  @keyframes glow {
-    from { box-shadow: 0 0 6px #451d49ff; }
-    to { box-shadow: 0 0 16px #451d49ff; }
-  }
-
-  .today a {
-   
-    display:inline-block;
-    padding: 10px 15px;
-    background: #451d49ff;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .today a:hover { background: #451d49ff; }
-
-  /* Collapsible for old tasks */
-  details {
-    background: #fff;
-    border-radius: 50px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    margin-bottom: 15px;
-      width:45%;
-      margin-left:350px;
-  }
-
-  summary {
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 15px 20px;
-    background: #451d49ff;
-    color: #fff;
-     border-radius:12px; 
-  }
-
-  details[open] summary { background:#451d49ff ;}
-
-  .content {
-    padding: 15px 25px;
-    background: #f9fafc;
-   
-  }
-
-  .content a {
-    display: inline-block;
-    margin: 5px 10px 5px 0;
-    padding: 8px 15px;
-    background: #451d49ff;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-  }
-
-  .content a:hover { background:#451d49ff; }
-
-  footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #666;
-  }
-  header{
-    background-color:#451d49ff;
-padding:5px;
-  }
 </style>
 </head>
 <body>
