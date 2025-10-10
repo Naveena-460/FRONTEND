@@ -1,17 +1,56 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin:0px;   
+            padding:0px;
+            border:0px;
+        }
+        body{
+            background-color: aliceblue;
+             font-family: "Poppins", sans-serif;
+              box-sizing: border-box;
+        }
+        header
+        {
+            background-color:#642745;
+            color:white;
+            padding:10px;
+            text-align: center;
+
+        }
+        .today{
+            border-left: 6px solid #642745;
+            padding:20px;
+            text-align: center;
+            width:50%;
+            margin: 10px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: glow 1s infinite alternate;
+              max-width: 600px;
+              box-sizing: border-box;
+
+        }
+        h2{
+            text-align: center;
+            color:#642745;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>FRONTEND TASK DASHBOARD</h1>
     </header>
     <main>
-        <div>
-            <h2>Today's Task</h2>
+         <h2>Today's Task</h2>
+        <div class="today">
+           
             <h3>Day 14 – CSS Units(px,em,rem,%,vh,vw),Responsive Basics(media queries)</h3>
             <p>click this for today’s file<p>
                 <a href="index.html" target="_blank">Task</a>
