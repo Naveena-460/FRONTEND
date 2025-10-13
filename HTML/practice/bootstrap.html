@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap  Notes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-dark">
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-primary mb-3">
+    <div class="container-fluid">
+      <span class="navbar-dark mb-0 h1">Bootstrap  Notes</span>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3 col-lg-2 bg-dark border-end p-3" style="min-height:100vh;">
+        <h5 class="text-primary mb-3">Topics</h5>
+        <div class="nav flex-column">
+          <a href="#intro" class="nav-link">Introduction</a>
+          <a href="#setup" class="nav-link">Setup</a>
+          <a href="#container" class="nav-link">Containers</a>
+          <a href="#grid" class="nav-link">Grid System</a>
+          <a href="#typography" class="nav-link">Typography</a>
+          <a href="#buttons" class="nav-link">Buttons</a>
+          <a href="#forms" class="nav-link">Forms</a>
+          <a href="#cards" class="nav-link">Cards</a>
+          <a href="#utilities" class="nav-link">Utilities</a>
+          <a href="#components" class="nav-link">Components</a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-9 col-lg-10 p-4 text-white">
+        <!-- Intro -->
+        <section id="intro">
+          <h2 class="text-primary">What is Bootstrap?</h2>
+          <p>Bootstrap is a popular front-end framework that helps you design websites quickly using ready-made CSS and JavaScript classes. It helps your site look good on all screen sizes.</p>
+        </section>
+
+        <hr>
+        <section id="setup">
+          <h3 class="text-primary">Setup</h3>
+          <p>Add these links in your HTML <code>&lt;head&gt;</code> section:</p>
+          <pre><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+        </section>
+
+        <hr>
+        <section id="container">
+          <h3 class="text-primary">Containers</h3>
+          <p>Containers are used to center and pad your content. You can use:</p>
+          <ul>
+            <li><code>.container</code> – fixed width</li>
+            <li><code>.container-fluid</code> – full width</li>
+          </ul>
+          <div class="container bg-light border p-3 text-dark">This is inside a container</div>
+        </section>
+
+        <hr>
+        <section id="grid">
+          <h3 class="text-primary">Grid System</h3>
+          <p>Bootstrap uses a 12-column grid. Wrap columns inside <code>.row</code> and use <code>.col</code> classes.</p>
+          <div class="row">
+            <div class="col bg-info text-white p-2">Column 1</div>
+            <div class="col bg-success text-white p-2">Column 2</div>
+          </div>
+        </section>
+
+        <hr>
+        <section id="typography">
+          <h3 class="text-primary">Typography</h3>
+          <p>Bootstrap gives simple text and heading styles.</p>
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <p class="lead">This is a lead paragraph.</p>
+          <p class="text-muted">This text looks muted.</p>
+          <p class="text-center">Centered text</p>
+        </section>
+
+        <hr>
+        <section id="buttons">
+          <h3 class="text-primary">Buttons</h3>
+          <p>Use <code>.btn</code> class for buttons and choose color variants:</p>
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-success">Success</button>
+          <button class="btn btn-danger">Danger</button>
+          <button class="btn btn-outline-secondary">Outline</button>
+        </section>
+
+        <hr>
+        <section id="forms">
+          <h3 class="text-primary">Forms</h3>
+          <p>Bootstrap styles all form elements beautifully.</p>
+          <input type="text" class="form-control mb-2" placeholder="Your name">
+          <input type="email" class="form-control mb-2" placeholder="Email">
+          <button class="btn btn-primary">Submit</button>
+        </section>
+
+        <hr>
+        <section id="cards">
+          <h3 class="text-primary">Cards</h3>
+          <div class="card" style="width:18rem;">
+            <img src="../../CSS/assets/images/img1.avif" class="card-img-top" alt="demo image">
+            <div class="card-body">
+              <h5 class="card-title">Card Title</h5>
+              <p class="card-text">Simple card example using Bootstrap.</p>
+              <a href="#" class="btn btn-primary">Go</a>
+            </div>
+          </div>
+        </section>
+
+        <hr>
+        <section id="utilities">
+          <h3 class="text-primary">Utilities</h3>
+          <p>Quick helper classes for spacing, text, borders, and colors.</p>
+          <div class="p-3 mb-2 bg-warning text-dark">Padding & Background Example</div>
+          <div class="border border-primary rounded p-2">Border and rounded corners</div>
+        </section>
+
+        <hr>
+        <section id="components">
+          <h3 class="text-primary">Common Components</h3>
+          <p>Bootstrap offers many ready-made components like Alerts and Badges.</p>
+          <div class="alert alert-success">This is a success alert!</div>
+          <span class="badge bg-info">Info Badge</span>
+        </section>
+
+        <hr>
+        <footer class="text-center mt-4">
+          <p class="text-muted">Bootstrap 5.3 Beginner Notes © 2025</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

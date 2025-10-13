@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Visibility Box</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+
+  .box {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: all 0.5s ease;
+  }
+
+  .box h2 {
+    margin-top: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 10px auto;
+    background: rgba(255,255,255,0.1);
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid white;
+    padding: 8px;
+  }
+
+  th {
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* 🟡 Default: Hidden */
+  .box { display: none; }
+
+  /* ✅ Small - Show the Box */
+  @media (min-width:481px) and (max-width:600px) {
+    .box { display:block; background-color:#2ecc71; }
+  }
+
+  /* ❌ Medium - Hide */
+  @media (min-width:601px) and (max-width:768px) {
+    .box { display:none; }
+  }
+
+  /* ✅ Large - Show */
+  @media (min-width:769px) and (max-width:1024px) {
+    .box { display:block; background-color:#e67e22; }
+  }
+
+  /* ❌ Extra Large - Hide */
+  @media (min-width:1025px) and (max-width:1200px) {
+    .box { display:none; }
+  }
+
+  /* ✅ Ultra Wide - Show */
+  @media (min-width:1601px) {
+    .box { display:block; background-color:#9b59b6; }
+  }
+</style>
+</head>
+<body>
+  <div class="box">
+    <h2>📱 Responsive Visibility Table</h2>
+    <table>
+      <tr><th>Device Type</th><th>Width Range</th><th>Status</th></tr>
+      <tr><td>Extra Small - Phones</td><td>0 - 480px</td><td>Hide</td></tr>
+      <tr><td>Small - Large Phones</td><td>481 - 600px</td><td>Show</td></tr>
+      <tr><td>Medium - Tablets</td><td>601 - 768px</td><td>Hide</td></tr>
+      <tr><td>Large - Laptops</td><td>769 - 1024px</td><td>Show</td></tr>
+      <tr><td>Extra Large - Desktops</td><td>1025 - 1200px</td><td>Hide</td></tr>
+      <tr><td>Ultra Wide - 4K Displays</td><td>> 1600px</td><td>Show</td></tr>
+    </table>
+  </div>
+</body>
+</html>

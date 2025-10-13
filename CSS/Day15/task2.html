@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Animated 3D Contact Book using HTML5 & CSS3 transitions and transforms." />
+  <title>3D Animated Contact Book</title>
+  <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+  <h1>📖CONTACT BOOK</h1>
+
+  <div class="contact-container">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-side front">
+        <img src="../assets/images/img10.jpeg" alt="Profile">
+        <h3>NAVIE</h3>
+   
+      </div>
+      <div class="card-side back" style="color: white;">
+        <h4>Contact Info</h4>
+        <p>📞 +91 98765 43210</p>
+        <p>✉️ navi@gmail.com</p>
+        <button class="btn">Call Me</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-side front" style="background:#00e6e6;box-shadow: 0 0 10px #00e6e6;">
+        <img src="../assets/images/img9.jpeg" alt="Profile">
+        <h3>MARZ</h3>
+    
+      </div>
+      <div class="card-side back" style="color: white;">
+        <h4>Contact Info</h4>
+        <p>📞 +91 87654 32109</p>
+        <p>✉️ Marz@gmail.com</p>
+        <button class="btn">Call Me</button>
+      </div>
+    </div>
+
+    <!-- Card 3 (Animated Form Card) -->
+    <div class="card">
+      <div class="card-side front" style="background:#00e6e6;box-shadow: 0 0 10px #00e6e6;">
+        <h3>Add New Contact</h3>
+        <p>Click to open form</p>
+      </div>
+      <div class="card-side back">
+        <h4 style="color: white;">➕ Add Contact</h4>
+        <form>
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="tel" placeholder="Phone Number" maxlength="10">
+          <textarea placeholder="Short Note..."></textarea>
+          <input type="submit" value="Save Contact">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
