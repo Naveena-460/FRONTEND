@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width,initial-scale=1.0">
+       <title>if statement</title>
+    </head>
+    <body>
+        <h1>IF CONDITION</h1>
+        <script>
+       let a=10;
+         if(a==10)
+         {
+            console.log('A is 10');//1
+         }
+         let rain=true;
+
+          if(rain)
+         {
+            console.log("no rain");//2
+         }
+
+        let mark=101;
+
+        if(mark>100)
+        {
+            console.log("It's invalid mark");//3
+        }
+        let choco="kitkat";
+
+        if(choco==="kitkat")
+        {
+            console.log("It's a kitkat choco");//4
+        }
+       let snap_streak=10,streak_miss=true;
+
+       if(snap_streak>5)
+       {
+        console.log("you continue your streak!");//5
+       }
+       if(streak_miss)
+        {
+        console.log("you break your streak!");//6
+        }
+    
+      if(snap_streak>5 && !streak_miss)
+      {
+      console.log("you have long streak!");//7
+      }
+      if(snap_streak>5 || streak_miss)
+      {
+        console.log("juz maintain streak!");//8
+      }
+     let sleep_time=12,wakeup_time=5;
+
+     if(sleep_time>11 && wakeup_time<6)
+     {
+        console.log("its affect health");//9
+     }
+     if(sleep_time>11 || wakeup_time>6)
+     {
+        console.log("little bit good");//10
+     }
+     if(wakeup_time>=5 && wakeup_time<7)
+     {
+        console.log("good");//11
+     }
+     let maths_mark=100,total_mark=220;
+     if(maths_mark==100)
+     {
+        console.log("You got centum");//12
+     }
+    if(total_mark==220)
+    {
+        console.log("juz pass");//13
+    }
+    let age=20,citizen=true;
+    if(age>=18 && citizen==true)
+    {
+        console.log("you are eligible for vote");//14
+    }
+    if(age<18 || citizen==true)
+    {
+        console.log("you are not eligible");//15
+    }
+    let temp=-1;
+    if(temp<0)
+    {
+        console.log("freezing cold");//16
+    }
+    let humidity=75;
+    if(humidity>=30 && humidity<80)
+    {
+        console.log("Normal humidity");//17
+    }
+    let wind_speed=4;
+    if(wind_speed<5)
+    {
+        console.log("calm wind");//18
+    }
+        </script>
+    </body>
+</html>
