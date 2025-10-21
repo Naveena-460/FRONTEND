@@ -1,0 +1,193 @@
+<html>
+<head>
+<title>function</title>
+</head>
+<body>
+<h1>Function,Arrow Function,Anonymous Function</h1>
+<script>
+//Function 
+
+function travel_expense() {
+  let distance = 12; 
+  let cost = distance * 5; 
+  console.log(" Travelled " + distance + " km — spent ₹" + cost + " for petrol ");
+}  
+travel_expense();
+
+
+function addition(){
+let a=10,b=14,c=a+b;
+console.log("Addition:"+c);
+}
+addition();
+
+
+function sleep_time() {
+  let dreams =  { type: "Weird", description: "Fell from mountain but woke up safe" };
+      console.log(" Sleep Time:", dreams.description);
+}
+sleep_time();
+
+
+function sleepless_night() {
+  console.log("Time to sleep... but brain: ‘Let’s remember all embarrassing moments!");
+}
+sleepless_night();
+
+
+function array(){
+let fruits=["mango","apple","orange"];
+console.log("I like",fruits[0]);
+}
+array();
+
+function array_ofobjects(){
+let courses = [
+  { course_name: "Full Stack", duration: "6 months" },
+  { course_name: "Data Science", duration: "1 year" },
+  { course_name: "Data analysis", duration: "4months" }
+];
+console.log("Courses:", courses[0].course_name,courses[0].duration);
+}
+array_ofobjects();
+
+function shopping_calc() {
+  let saree = 1699,product = 1299,total=saree+product;
+  console.log("paid Rs" +total);
+}
+shopping_calc();
+
+
+function friends_gossip() {
+  let gossip = [
+    { friend: "jshree", topic:"Who texted her at midnight" },
+    { friend: "Marzoo", topic:"life gossipz" }
+  ];
+  console.log("Friends Gossip:", gossip);
+}
+friends_gossip();
+
+function exam_marks() {
+  let marks = [85, 90, 78];
+  let total = marks[0] + marks[1] + marks[2];
+  console.log("Total marks:"+total);
+}
+exam_marks(); 
+
+function movie_snacks() {
+  let popcorn = 120,drink = 60;
+  console.log("Popcorn + Drink = ₹" + (popcorn + drink));
+}
+movie_snacks();
+
+//Arrow function
+
+const rain = () => console.log(" Rain started just when I stepped out");
+rain();
+
+const insta_likes=()=> {
+  let posts = 2,likes_perpost = [120, 150], total_likes = likes_perpost[0] + likes_perpost[1];
+  console.log(" Got " + total_likes);
+};
+insta_likes();
+
+const birthday_budget=()=>{
+let cake=600,decorations=300,gift=500,total=cake+decorations+gift;
+console.log("Birthdaybuget="+total);
+};
+birthday_budget();
+
+
+const group_chat = () => console.log("Friends:Let’s study together! — Never happened ");
+group_chat();
+
+
+const bike_ride = () => {
+  let distance = 60,time = 2;
+  console.log("Average Speed = " + distance / time);
+};
+bike_ride();
+
+
+const snap_streak=()=>{
+console.log("Maintain a strong streak");
+}
+snap_streak();
+
+const online_class = () => {
+  let start = 9, end = 12, duration = end - start;
+  console.log("Online class duration " + duration);
+};
+online_class();
+
+const net_flix = () => console.log(" One episode ,3 hours gone");
+net_flix();
+ 
+const shopping_cart = () => {
+  let items = [
+    { name: "saree", price: 499 },
+    { name: "top", price: 799 },
+  ];
+  let total = items[0].price + items[1].price;
+  console.log("Cart total ₹" + total);
+};
+shopping_cart();
+
+//anonyms function
+
+const alarm = function() {
+  console.log("Alarm rang... snoozed like a pro");
+};
+alarm();
+
+const add_numbers = function() {
+  let a = 10, b = 5;
+  console.log("Addition result:", a + b);
+};
+add_numbers();
+
+const festival = function() {
+  console.log("Lights, sweets, and selfies everywhere");
+};
+festival();
+
+const traffic = function() {
+  console.log(" Stuck in traffic... ");
+};
+traffic();
+
+
+const calc_discount = function() {
+  let price = 200, discount = 20;
+  console.log("After discount:", price - discount);
+};
+
+calc_discount();
+
+
+const beach = function() {
+  console.log(" Went to relax ,came back with 2 kg of sand ");
+};
+beach();
+
+const multiply_items = function() {
+  let arr = [2, 4, 6],total=arr[0]*arr[1]*arr[2];
+  console.log("Multiplied array:",+total);
+};
+multiply_items();
+
+const string_concat = function() {
+  let name = "Naveena";
+  console.log("Message:", "Hello " + name + "! Have a great day");
+};
+string_concat();
+
+const snack = function() {
+  let snacks = ["Chips", "Chocolate", "Biscuits", "Juice"];
+   console.log("Today's fav snack:",snacks[1]);
+};
+snack();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<html>
+<body>
+<h1>Array,Objects,Array of objects</h1>
+<script>
+let numbers = [1, 2, 3, 4];
+{ 
+console.log(numbers[3]);
+}
+let mobile_shop=[1,"vivo",10000];
+{
+console.log(mobile_shop[1]);
+}
+let morning_routine=["wakeup","freshen","breakfast"];
+{
+console.log(morning_routine);
+}
+let college_bag=["books","laptop","pen"];
+{
+console.log("college bag must have:", college_bag[1],",",college_bag[0] );
+}
+let choco_name=["kitkat","galaxy","dairymilk","perk"];
+{
+console.log("My fav choco:",choco_name[0]);
+}
+let marks=[90,80,95,85];
+{
+console.log("Total marks:",marks[0]+marks[1]+marks[2]+marks[3]);
+}
+let festivals=["Ramzan","Diwali","Pongal","Chirstmas"];
+{
+console.log("Upcoming festival:",festivals[3]);
+}
+let space=["sun","star","moon"];
+{
+console.log("I like",space[2]);
+}
+let lucky_num=[3,13,21,24,6];
+{
+console.log("my lucky num:",lucky_num[0]);
+}
+let movies=["ok kanmani","oh my kadavuley","leo","hi nanna"];
+{
+console.log("choose one movie:",movies[1]);
+}
+let subjects = ["HTML", "CSS", "JS"];
+{
+console.log(subjects);
+}
+let snacks=["biscuits-20","chocolates-100"];
+{
+console.log(snacks[1]);
+}
+
+//object
+
+let student = {name: "Naveena",reg_no: "SIT2227",dept: "Information Technology",year: 3};
+console.log("student name:",student.name);
+
+let mobile = {brand: "Samsung", model: "Galaxy A55",price: 25000,color: "Black"};
+console.log("mobile:",mobile.brand,"-",mobile.price);
+
+let product = {name: "Laptop", brand: "HP",specs: { processor: "i5",ram: "16GB",storage: "512GB SSD"},price: 65000};
+console.log("product-ram:",product.specs.ram);
+
+let course={name:"navi",course_name:"full stack",syllabus:{frontend:["HTML","CSS","JS"],backend:["Java","Mysql"]},fees:55000};
+console.log("syllabus:",course.syllabus.frontend,course.syllabus.backend);
+
+let house = {address: "Chennai",type: "Apartment",floors: 3,owner: "Ravi"};
+console.log("floors:",house.floors);
+
+let bank_account={acc_num:38462263,name:"navi",amount:90000,transactions:{last_deposit: 2000,last_withdraw: 1000}};
+console.log("Last Withdraw:",bank_account.transactions.last_withdraw);
+
+let car = {brand:"Tata",model: "Nexon",mileage: 18,fuel: "Petrol"};
+console.log("brand:",car.brand);
+
+let food = {name: "Pizza",size: "Medium", price: 199,is_veg: true};
+console.log("Name and price:",food.name,food.price);
+
+let travel_plan = {destination: "Ooty",transport: {type:"Train",time:"7:00 AM",ticketPrice:450},stay:{hotel:"HillTop Resort", nights:2}};
+console.log("Travel by:", travel_plan.transport.type, "to", travel_plan.destination);
+
+let order = {orderId: 12345,items:{item1: "T-shirt", item2: "Shoes", item3: "Watch" },totalAmount:2500};
+console.log("Item2 is:",order.items.item2);
+
+let movie = {title:"Leo",language: "Tamil",cast:{hero: "Vijay",villain: "Arjun",director: "Lokesh Kanagaraj"},rating: 9.2};
+console.log("Movie Hero:", movie.cast.hero);
+
+let makeup_product={product:"Eyeliner",brand:"lakme",price:100};
+console.log("product name:",makeup_product.product);
+
+//Array of objects
+
+
+let students = [
+  { name: "Navi", age: 21, course: "IT" },
+  { name: "Priya", age: 22, course: "CS" }
+];
+console.log("Students:", students[0].name);
+
+
+let mov= [
+  { title: "Leo", genre: "Action", rating: 8.7 },
+  { title: "96", genre: "Romance", rating: 9.1 }
+];
+console.log("Movies:", mov[1]);
+
+let books = [
+  { title: "Atomic Habits", author: "James Clear" },
+  { title: "wings of fire", author: "APJ.Abdul kalam" }
+];
+console.log("Books:", books[1].author);
+
+
+let gadgets = [
+  { name: "Phone", brand: "Apple", price: 80000 },
+  { name: "Laptop", brand: "Dell", price: 65000 }
+];
+console.log("Gadgets:", gadgets);
+
+
+let employees = [
+  { name: "Arun", role: "Developer", salary: 50000 },
+  { name: "Kavi", role: "Designer", salary: 45000 }
+];
+console.log("Employees:", employees[0].salary,employees[1].salary);
+
+
+let courses = [
+  { course_name: "Full Stack", duration: "6 months" },
+  { course_name: "Data Science", duration: "1 year" },
+  { course_name: "Data analysis", duration: "4months" }
+];
+console.log("Courses:", courses[1].course_name,courses[2].duration);
+
+
+let vehicles = [
+  { type: "Car", brand: "Hyundai" },
+  { type: "Bike", brand: "Yamaha" }
+];
+console.log("Vehicles:", vehicles);
+
+
+let products = [
+  { name: "T-shirt", price: 599 },
+  { name: "Shoes", price: 1299 }
+];
+console.log("Products:", products[0].price,products[1].price);
+
+
+let teachers = [
+  { name: "Meena", subject: "Maths" },
+  { name: "Ravi", subject: "Physics" }
+];
+console.log("Teachers:", teachers[0].name,teachers[1].subject);
+
+
+let restaurants = [
+  { name: "A2B", cuisine: "South Indian" },
+  { name: "KFC", cuisine: "Fast Food" }
+];
+console.log("Restaurants:", restaurants[1]);
+
+
+let games = [
+  { name: "Cricket", players: 11 },
+  { name: "Chess", players: 2 }
+];
+console.log("Games:", games[0].players,games[1].players);
+
+
+let hospitals = [
+  { name: "Apollo", location: "Chennai" },
+  { name: "CMC", location: "Vellore" }
+];
+console.log("Hospitals:", hospitals[0].name,hospitals[1].name);
+
+</script>
+
+</body>
+</html>
