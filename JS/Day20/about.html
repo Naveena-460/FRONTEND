@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>About Planet Zyra</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  height:100%;
+  width:100%;
+  font-family:"Poppins",sans-serif;
+  background: radial-gradient(circle at bottom, #000010 40%, #000000 100%);
+  color:#fff;
+  overflow:hidden;
+  -webkit-text-size-adjust:none; /* prevent auto zoom on mobile */
+}
+
+/* ======== NAV (Glass Style) ======== */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  padding:18px 40px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  flex-wrap:nowrap;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:1px;
+  flex-shrink:0;
+}
+.logo-svg{
+  width:52px;height:52px;
+  display:flex;align-items:center;justify-content:center;
+  background: radial-gradient(circle at 30% 30%, #ff8a3d, #1b0b2f 60%);
+  border-radius:50%;
+  box-shadow:0 6px 20px rgba(255,138,61,0.15), 0 0 18px rgba(0,142,255,0.06);
+}
+.logo-text{
+  font-size:1.6rem;
+  font-weight:800;
+  color:#fff;
+  text-shadow:0 0 8px rgba(0,229,255,0.85),0 0 22px rgba(0,120,255,0.12);
+  white-space:nowrap;
+}
+ul{
+  list-style:none;
+  display:flex;
+  gap:28px;
+  align-items:center;
+  flex-wrap:nowrap;
+}
+ul li a{
+  text-decoration:none;
+  color:rgba(255,255,255,0.92);
+  font-weight:600;
+  font-size:1.02rem;
+  transition:all .18s ease;
+  pointer-events:auto;
+  padding:6px 8px;border-radius:6px;
+  white-space:nowrap;
+}
+ul li a:hover{
+  color:#ff963f;
+  text-shadow:0 0 10px rgba(255,150,63,0.9);
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.02);
+}
+
+/* ======== STARRY SKY ======== */
+.stars{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:0;
+  background:transparent;
+  overflow:hidden;
+}
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  opacity:0;
+  animation:blink 3s infinite;
+}
+@keyframes blink{0%,100%{opacity:0;}50%{opacity:1;}}
+
+/* ======== LAYOUT ======== */
+.container{
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  height:100vh;
+  position:relative;
+  z-index:2;
+  padding:0 40px;
+  margin-top:80px; /* below nav */
+  flex-wrap:nowrap;
+}
+
+/* ======== PLANET ======== */
+.planet-wrap{
+  position:relative;
+  width:250px;
+  height:250px;
+  flex-shrink:0;
+}
+.planet{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #ff6030, #12125c 80%);
+  box-shadow:
+    0 0 30px #ff6030,
+    inset 0 0 40px #12125c,
+    0 0 100px #0949f0;
+  animation:rotatePlanet 10s linear infinite;
+}
+@keyframes rotatePlanet{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+/* ======== ELECTRIC EFFECT ======== */
+.electric{
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  border-radius:50%;
+  box-shadow:0 0 20px 4px #179696, inset 0 0 50px 5px rgb(95,223,223);
+  opacity:0.7;
+  animation:electricPulse 3s infinite;
+}
+@keyframes electricPulse{
+  0%,100%{opacity:0.7;transform:scale(1);}
+  50%{opacity:1;transform:scale(1.05);}
+}
+
+/* ======== INFO TEXT ======== */
+.info{
+  max-width:500px;
+  flex-shrink:0;
+}
+.info h1{
+  font-size:2.8rem;
+  background:linear-gradient(180deg,#0949f0,#ff6030);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  white-space:nowrap;
+}
+.info p{
+  margin-top:20px;
+  font-size:1.1rem;
+  line-height:1.8;
+  color:#cce7ff;
+  text-shadow:0 0 10px #093cff;
+}
+.more{
+  padding:12px 30px;
+  border:none;
+  font-size:1rem;
+  font-weight:600;
+  border-radius:25px;
+  cursor:pointer;
+  background:linear-gradient(90deg,#0949f0,#ff6030);
+  color:#fff;
+  box-shadow:0 0 15px #0949f0;
+  transition:0.3s;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:25px;
+  white-space:nowrap;
+}
+.more:hover{
+  box-shadow:0 0 25px #ff6030,0 0 40px #0949f0;
+  transform:scale(1.05);
+}
+
+/* ======== FOOTER (Glass Style) ======== */
+footer{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  padding:12px 0;
+  font-size:0.9rem;
+  color:#bfe9ff;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+  z-index:5;
+}
+footer span{color:#ff963f;}
+
+/* 📱 Safe scaling + No collapse */
+@media(max-width:900px){
+  html,body{overflow-x:hidden;}
+  nav ul{gap:20px;}
+  .container{flex-direction:column;justify-content:center;text-align:center;}
+  .planet-wrap{margin-bottom:40px;}
+  .info h1{font-size:2.2rem;}
+  .info p{font-size:1rem;}
+}
+
+@media(max-width:480px){
+  .container{padding:0 20px;}
+  .info h1{font-size:1.8rem;}
+  .info p{font-size:0.95rem;line-height:1.6;}
+  .more{font-size:0.9rem;padding:10px 24px;}
+}
+
+@media(min-width:2000px){
+  body{zoom:1.4;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-svg" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#ff963f"/>
+            <stop offset="100%" stop-color="#00e5ff"/>
+          </linearGradient>
+          <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <circle cx="50" cy="50" r="45" fill="url(#g1)" opacity="0.14"/>
+        <path d="M20 20 H78 L22 80 H80" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#f1)"/>
+      </svg>
+    </div>
+    <div class="logo-text">YRA</div>
+  </div>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="life.html">Life on Zyra</a></li>
+    <li><a href="ai.html">AI Core</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- STAR BACKGROUND -->
+<div class="stars" id="stars"></div>
+
+<div class="container">
+  <div class="planet-wrap">
+    <div class="planet"></div>
+    <div class="electric"></div>
+  </div>
+  <div class="info">
+    <h1>About Zyra</h1>
+    <p>
+      Zyra is not just a planet — it’s a living code, powered by digital energy and flowing data currents.
+      Its surface glows with streams of binary light, and every rotation sends a surge of energy through the
+      cosmos. Zynites, the intelligent beings of Zyra, maintain balance between creation and computation.
+    </p>
+    <a class="more" href="life.html">Know More</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 <span>Zyra Network</span>. All transmissions secure.
+</footer>
+
+<script>
+/* ======== STAR GENERATOR ======== */
+const starsContainer=document.getElementById("stars");
+for(let i=0;i<120;i++){
+  const star=document.createElement("div");
+  star.classList.add("star");
+  star.style.top=Math.random()*100+"%";
+  star.style.left=Math.random()*100+"%";
+  star.style.animationDelay=(Math.random()*3)+"s";
+  starsContainer.appendChild(star);
+}
+</script>
+</body>
+</html>

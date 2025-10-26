@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Zyra — Contact Portal</title>
+<meta name="description" content="Establish a secure communication link with Zyra’s AI Core through the official Contact Portal. Transmit messages, data requests, and collaborations.">
+<meta name="keywords" content="Zyra, Contact Portal, AI Core, Transmission, Communication, Sci-Fi Interface">
+<meta name="author" content="Zyra Network">
+<style>
+:root {
+  --bg1: #0a0a2a;
+  --bg2: #02010f;
+  --accent:#0a0a2a;
+  --accent2: #ff6030;
+  --glass: rgba(255,255,255,0.05);
+  --text: #cfefff;
+}
+
+/* Basic setup */
+*{box-sizing:border-box;font-family:"Poppins",sans-serif;margin:0;padding:0}
+html,body{
+  height:100%;
+  background:radial-gradient(circle at 20% 20%,var(--bg1),var(--bg2));
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  overflow-x:hidden;
+}
+
+/* ======== NAV ======== */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  padding:18px 40px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:1px;
+}
+.logo-svg{
+  width:52px;height:52px;
+  display:flex;align-items:center;justify-content:center;
+  background: radial-gradient(circle at 30% 30%, #ff8a3d, #1b0b2f 60%);
+  border-radius:50%;
+  box-shadow:0 6px 20px rgba(255,138,61,0.15), 0 0 18px rgba(0,142,255,0.06);
+}
+.logo-text{
+  font-size:1.6rem;
+  font-weight:800;
+  color:#fff;
+  text-shadow:
+      0 0  8px rgba(0,229,255,0.85),
+      0 0 22px rgba(0,120,255,0.12);
+}
+ul{list-style:none;display:flex;gap:28px;align-items:center}
+ul li a{
+  text-decoration:none;
+  color:rgba(255,255,255,0.92);
+  font-weight:600;
+  font-size:1.02rem;
+  transition:all .18s ease;
+  pointer-events:auto;
+  padding:6px 8px;border-radius:6px;
+}
+ul li a:hover{
+  color:#ff963f;
+  text-shadow:0 0 10px rgba(255,150,63,0.9);
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.02);
+}
+
+/* STARFIELD */
+.stars {position:fixed;inset:0;z-index:0;pointer-events:none;}
+.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:0.8;filter:blur(0.2px);animation:twinkle 2s infinite alternate;}
+@keyframes twinkle {from{opacity:0.3}to{opacity:0.9}}
+
+/* Card */
+main{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:140px 0 100px; /* space for nav + footer */
+}
+.card{
+  position:relative;
+  z-index:1;
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  backdrop-filter:blur(6px);
+  padding:36px 40px;
+  border-radius:20px;
+  width:600px;
+  height:600px;
+  max-width:90%;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.06);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* Header */
+h1{
+  font-size:26px;
+  margin-bottom:8px;
+  letter-spacing:1px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+  text-align:center;
+}
+.subtitle{
+  font-size:14px;
+  color:#bfe9ff;
+  margin-bottom:22px;
+  text-align:center;
+  line-height:1.4;
+  max-width:400px;
+}
+
+/* Form */
+form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  width:100%;
+  align-items:center;
+}
+.form-group{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  width:100%;
+  max-width:360px;
+}
+label{
+  font-size:13px;
+  color:var(--text);
+  opacity:0.9;
+  margin-bottom:4px;
+  text-align:left;
+  width:100%;
+}
+
+/* Fix dropdown option visibility */
+select, option {
+  background-color: rgba(10, 10, 42, 0.95);
+  color: var(--text);
+}
+select option:hover,
+select option:focus,
+select:focus-visible {
+  background-color: rgba(0, 183, 255, 0.2);
+  color: #ffffff;
+}
+
+.input, textarea, select{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.05);
+  padding:12px 14px;
+  border-radius:10px;
+  color:var(--text);
+  outline:none;
+  font-size:14px;
+  width:100%;
+}
+textarea{min-height:100px;resize:vertical}
+.input:focus,textarea:focus,select:focus{
+  box-shadow:0 0 15px rgba(0,183,255,0.1);
+  border-color:rgba(0,183,255,0.3);
+}
+
+/* Actions */
+.actions{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-top:6px;
+  justify-content:center;
+}
+.btn{
+  padding:12px 18px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:white;
+  box-shadow:0 6px 20px rgba(0,183,255,0.07);
+  transition:0.3s;
+}
+.btn:hover{box-shadow:0 8px 30px rgba(0,183,255,0.2);transform:translateY(-2px)}
+.btn.secondary{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--text);
+}
+
+.note{
+  font-size:12px;
+  color:#a9dfff;
+  opacity:0.9;
+  text-align:center;
+  margin-top:10px;
+  max-width:360px;
+}
+
+/* Sending beam */
+.send-overlay{position:relative;height:50px;margin-top:12px;width:100%;max-width:360px;}
+.beam{
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:0;
+  background:linear-gradient(90deg, rgba(0,183,255,0.3), rgba(255,96,48,0.2));
+  border-radius:999px;
+  opacity:0.7;
+  transition:width 1s ease;
+}
+.ack{
+  margin-left:6px;
+  color:#bfe9ff;
+  font-weight:600;
+  font-size:13px;
+  text-align:center;
+  display:block;
+  margin-top:4px;
+}
+
+/* Footer */
+footer{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  padding:12px 0;
+  font-size:0.9rem;
+  color:#bfe9ff;
+  backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+  z-index:5;
+}
+footer span{color:#ff963f}
+
+/* Responsive */
+@media(max-width:500px){
+  .card{padding:24px;width:95%}
+  .form-group{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="logo">
+    <div class="logo-svg" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#ff963f"/>
+            <stop offset="100%" stop-color="#00e5ff"/>
+          </linearGradient>
+          <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <circle cx="50" cy="50" r="45" fill="url(#g1)" opacity="0.14"/>
+        <path d="M20 20 H78 L22 80 H80" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#f1)"/>
+      </svg>
+     </div>
+    <div class="logo-text">YRA</div>
+  </div>
+
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="life.html">Life on Zyra</a></li>
+    <li><a href="ai.html">AI Core</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== STARFIELD ===== -->
+<div class="stars" id="stars"></div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main role="main">
+  <div class="card" aria-labelledby="portal-title">
+    <h1 id="portal-title">Establish a Link with Zyra</h1>
+    <div class="subtitle">Transmit a message to Zyra’s AI Core. Use the portal below to send your signal — confirmation will follow.</div>
+
+    <form id="transmitForm" autocomplete="off">
+      <div class="form-group">
+        <label for="idCode">Identifier Code</label>
+        <input id="idCode" name="idCode" class="input" placeholder="Name/id" required>
+      </div>
+      <div class="form-group">
+        <label for="freq">Comm Frequency</label>
+        <input id="freq" name="freq" type="email" class="input" placeholder="your@signal.domain" required>
+      </div>
+      <div class="form-group">
+        <label for="type">Transmission Type</label>
+        <select id="type" name="type" class="input">
+          <option>Data Request</option>
+          <option>Energy Transfer</option>
+          <option>Research Collaboration</option>
+          <option>Diplomatic</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="msg">Message Signal</label>
+        <textarea id="msg" name="msg" placeholder="Write your transmission..."></textarea>
+      </div>
+      <div class="actions">
+        <button type="submit" class="btn" id="sendBtn">Send Transmission</button>
+        <button type="button" class="btn secondary" id="clearBtn">Reset</button>
+      </div>
+      <div class="send-overlay" aria-live="polite">
+        <div class="beam" id="beam"></div>
+        <span class="ack" id="ackText"></span>
+      </div>
+      <div class="note">This portal simulates a secure transmission. No data is sent to external servers.</div>
+    </form>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  © 2025 <span>Zyra Network</span>. All transmissions secure.
+</footer>
+
+<script>
+/* ===== STAR GENERATOR ===== */
+(function makeStars(){
+  const container = document.getElementById('stars');
+  for(let i=0;i<120;i++){
+    const s=document.createElement('div');s.className='star';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    const size=1+Math.random()*2; s.style.width=s.style.height=size+'px';
+    s.style.animationDelay=(Math.random()*2)+'s';
+    container.appendChild(s);
+  }
+})();
+
+/* ===== FORM SEND SIMULATION ===== */
+const form=document.getElementById('transmitForm');
+const beam=document.getElementById('beam');
+const ackText=document.getElementById('ackText');
+const sendBtn=document.getElementById('sendBtn');
+const clearBtn=document.getElementById('clearBtn');
+
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const id=document.getElementById('idCode').value.trim();
+  const freq=document.getElementById('freq').value.trim();
+  const msg=document.getElementById('msg').value.trim();
+  if(!id||!freq||!msg){ackText.textContent="Fill Identifier, Frequency & Message.";ackText.style.color='#ffb3b3';return;}
+  
+  sendBtn.disabled=true; sendBtn.textContent='Transmitting…'; ackText.style.color='#bfe9ff'; ackText.textContent='Locking channel...';
+  beam.style.width='0'; setTimeout(()=>{beam.style.width='100%';},80);
+  
+  await new Promise(r=>setTimeout(r,1100)); ackText.textContent='Signal routing...';
+  await new Promise(r=>setTimeout(r,1000)); ackText.textContent='Handshaking with Zyra AI Core...';
+  await new Promise(r=>setTimeout(r,1200));
+  
+  const responses=[
+    "Zyra acknowledges your transmission.",
+    "Message received. Energy window open.",
+    "Transmission accepted. Confirmation pulse sent.",
+    "AI Core: Thank you. Data handshake complete."
+  ];
+  const resp=responses[Math.floor(Math.random()*responses.length)];
+  beam.style.width='0'; ackText.textContent=resp; ackText.style.color='#b6fff8';
+  sendBtn.textContent='Sent ✓'; sendBtn.disabled=false;
+});
+
+clearBtn.addEventListener('click',()=>{
+  form.reset(); ackText.textContent=''; beam.style.width='0'; sendBtn.textContent='Send Transmission';
+});
+</script>
+</body>
+</html>

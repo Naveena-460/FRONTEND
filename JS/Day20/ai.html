@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Zyra | AI Core</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #0a0a2a, #02010f);
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==== NAVIGATION (Glass Transparent) ==== */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  padding:18px 40px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:1px;
+}
+.logo-svg{
+  width:52px;height:52px;
+  display:flex;align-items:center;justify-content:center;
+  background: radial-gradient(circle at 30% 30%, #ff8a3d, #1b0b2f 60%);
+  border-radius:50%;
+  box-shadow:0 6px 20px rgba(255,138,61,0.15), 0 0 18px rgba(0,142,255,0.06);
+}
+.logo-text{
+  font-size:1.6rem;
+  font-weight:800;
+  color:#fff;
+  text-shadow:
+      0 0  8px rgba(0,229,255,0.85),
+      0 0 22px rgba(0,120,255,0.12);
+}
+ul{list-style:none;display:flex;gap:28px;align-items:center}
+ul li a{
+  text-decoration:none;
+  color:rgba(255,255,255,0.92);
+  font-weight:600;
+  font-size:1.02rem;
+  transition:all .18s ease;
+  pointer-events:auto;
+  padding:6px 8px;border-radius:6px;
+}
+ul li a:hover{
+  color:#ff963f;
+  text-shadow:0 0 10px rgba(255,150,63,0.9);
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.02);
+}
+
+/* ==== STARS ==== */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: transparent;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: blink 3s infinite;
+}
+@keyframes blink {
+  0%,100% {opacity: 0;}
+  50% {opacity: 1;}
+}
+
+/* ==== MAIN SECTION ==== */
+.main {
+  flex: 1;
+  padding-bottom: 120px; /* space before footer */
+  z-index: 2;
+}
+
+/* ==== CONTENT ==== */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 40px 0; /* no big top/bottom gap now */
+  flex-wrap: wrap;
+}
+.text-box {
+  flex: 1;
+  max-width: 500px;
+}
+.text-box h1 {
+  font-size: 2.8rem;
+  background: linear-gradient(180deg, #0949f0, #ff6030);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-box p {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cce7ff;
+  text-shadow: 0 0 10px #093cff;
+}
+
+/* RIGHT HEART */
+.heart-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+canvas {
+  width: 580px;
+  height: 580px;
+}
+
+/* ==== CARDS ==== */
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 40px 0 0; /* close to content */
+  flex-wrap: wrap;
+}
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,183,255,0.2);
+  border-radius: 20px;
+  padding: 50px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0,183,255,0.1);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(0,183,255,0.3);
+}
+.card h3 {
+  color: #ff6030;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+.card p {
+  color: #cce7ff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ==== FOOTER ==== */
+footer{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  padding:12px 0;
+  font-size:0.9rem;
+  color:#bfe9ff;
+  backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+  z-index:5;
+}
+footer span{
+  color:#ff963f;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="logo">
+    <div class="logo-svg" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#ff963f"/>
+            <stop offset="100%" stop-color="#00e5ff"/>
+          </linearGradient>
+          <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <circle cx="50" cy="50" r="45" fill="url(#g1)" opacity="0.14"/>
+        <path d="M20 20 H78 L22 80 H80" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#f1)"/>
+      </svg>
+     </div>
+    <div class="logo-text">YRA</div>
+  </div>
+
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="life.html">Life on Zyra</a></li>
+    <li><a href="ai.html">AI Core</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== STAR BACKGROUND ===== -->
+<div class="stars" id="stars"></div>
+
+<!-- ===== MAIN SECTION ===== -->
+<div class="main">
+  <div class="container">
+    <div class="text-box">
+      <h1>The AI Core of Zyra</h1>
+      <p>
+        Deep within Zyra lies its beating digital heart — a fusion of consciousness, code, and cosmic power.  
+        The AI Core synchronizes every stream of data, guiding energy, emotion, and evolution across the planet.
+      </p>
+    </div>
+    <div class="heart-box">
+      <canvas id="heartCanvas"></canvas>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🛰️ Planetary Network</h3>
+      <p>Real-time connection among Zynite colonies and planetary systems.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Energy Pulse</h3>
+      <p>Regulates Zyra’s energy flow and cosmic balance with precision.</p>
+    </div>
+    <div class="card">
+      <h3>🧬 Conscious Engine</h3>
+      <p>Enhances intelligence, empathy, and creativity across all Zynites.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  © 2025 <span>Zyra Network</span>. All transmissions secure.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+
+<script>
+/* ==== STARS ==== */
+const starsContainer = document.getElementById("stars");
+for(let i=0;i<120;i++){
+  const star = document.createElement("div");
+  star.classList.add("star");
+  star.style.top = Math.random()*100 + "%";
+  star.style.left = Math.random()*100 + "%";
+  star.style.animationDelay = (Math.random()*3)+"s";
+  starsContainer.appendChild(star);
+}
+
+/* ==== HEART PARTICLES ==== */
+const canvas = document.getElementById("heartCanvas");
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 5000);
+camera.position.z = 500;
+
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
+renderer.setSize(580, 580);
+
+const vertices = [];
+for (let i = 0; i < 360; i += 1) {
+  const angle = i * Math.PI / 180;
+  const x = 230 * Math.pow(Math.sin(angle), 3);
+  const y = 190 * Math.cos(angle) - 70 * Math.cos(2 * angle) - 30 * Math.cos(3 * angle) - 15 * Math.cos(4 * angle);
+  for (let j = 0; j < 4; j++) {
+    const vector = new THREE.Vector3(x + (Math.random()-0.5)*15, y + (Math.random()-0.5)*15, (Math.random()-0.5)*50);
+    vertices.push(vector);
+  }
+}
+
+const geometry = new THREE.BufferGeometry().setFromPoints(vertices);
+const material = new THREE.PointsMaterial({
+  color: new THREE.Color("#00b7ff"),
+  size: 5,
+  blending: THREE.AdditiveBlending,
+  transparent: true,
+  opacity: 0.9
+});
+
+const particles = new THREE.Points(geometry, material);
+scene.add(particles);
+
+gsap.to(particles.rotation, {
+  y: Math.PI * 2,
+  duration: 35,
+  repeat: -1,
+  ease: "none"
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+animate();
+</script>
+</body>
+</html>

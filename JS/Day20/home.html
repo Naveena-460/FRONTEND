@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zyra – Cosmic Code Planet</title>
+<style>
+
+ 
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{
+    height:100%;
+    width:100%;
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    scroll-behavior:smooth;
+    overflow:hidden;
+    -webkit-text-size-adjust:none; /* Prevent mobile auto-zoom */
+  }
+
+  canvas.webgl{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    outline:none;
+    z-index:0;
+  }
+
+  .overlay{
+    position:relative;
+    z-index:10;
+    height:50vh;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:24px;
+    pointer-events:none;
+  }
+
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    pointer-events:auto;
+    flex-wrap:nowrap; /* prevent collapse */
+  }
+
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:1px;
+    flex-shrink:0;
+  }
+
+  .logo-svg{
+    width:52px;height:52px;
+    display:flex;align-items:center;justify-content:center;
+    background: radial-gradient(circle at 30% 30%, #ff8a3d, #1b0b2f 60%);
+    border-radius:50%;
+    box-shadow:0 6px 20px rgba(255,138,61,0.15), 0 0 18px rgba(0,142,255,0.06);
+  }
+
+  .logo-text{
+    font-size:1.6rem;
+    font-weight:800;
+    color:#fff;
+    text-shadow:0 0 8px rgba(0,229,255,0.85),0 0 22px rgba(0,120,255,0.12);
+    white-space:nowrap;
+  }
+
+  ul{
+    list-style:none;
+    display:flex;
+    gap:28px;
+    align-items:center;
+    flex-wrap:nowrap;
+    white-space:nowrap;
+  }
+
+  ul li a{
+    text-decoration:none;
+    color:rgba(255,255,255,0.92);
+    font-weight:600;
+    font-size:1.02rem;
+    transition:all .18s ease;
+    pointer-events:auto;
+    padding:6px 8px;
+    border-radius:6px;
+  }
+
+  ul li a:hover{
+    color:#ff963f;
+    text-shadow:0 0 10px rgba(255,150,63,0.9);
+    transform:translateY(-2px);
+    background:rgba(255,255,255,0.02);
+  }
+
+  .hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    flex:1;
+    text-align:center;
+    pointer-events:none;
+  }
+
+  h1{
+    font-size:3rem;
+    font-weight:900;
+    background:linear-gradient(180deg,#0949f0,#ff6030);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    white-space:nowrap;
+  }
+
+  .subtitle{
+    font-size:1.8rem;
+    font-weight:200;
+    color:white;
+    margin-top:20px;
+    text-shadow:0 0 8px rgba(0,229,255,0.85),0 0 22px rgba(0,120,255,0.12);
+    pointer-events:none;
+    white-space:nowrap;
+  }
+
+  .explore-btn{
+    pointer-events:auto;
+    margin-top:330px;
+    padding:12px 28px;
+    border-radius:14px;
+    border:none;
+    font-weight:700;
+    font-size:1.5rem;
+    color:white;
+    background:linear-gradient(90deg,#0949f0,#ff6030);
+    box-shadow:0 0 15px #0949f0;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  .explore-btn:hover{
+    box-shadow:0 0 25px #ff6030, 0 0 40px #0949f0;
+    transform:scale(1.05);
+  }
+
+  /* 📱 Prevent collapse and wrapping on all small devices */
+  @media (max-width:800px){
+    html,body{
+      overflow-x:hidden;
+    }
+    nav ul{
+      flex-wrap:nowrap;
+      gap:20px;
+      justify-content:center;
+    }
+    .overlay{
+      padding:20px;
+    }
+    .hero{
+      transform:scale(0.85); /* slightly smaller but readable */
+    }
+  }
+
+  @media (max-width:480px){
+    .hero{
+      transform:scale(0.8);
+    }
+    h1{font-size:2rem;}
+    .subtitle{font-size:1.2rem;}
+  }
+
+  @media (min-width:2000px){
+    body{zoom:1.4;}
+  }
+
+
+</style>
+
+
+</head>
+<body>
+  <canvas class="webgl"></canvas>
+
+  <div class="overlay">
+    <nav>
+      <div class="logo">
+        <!-- SVG stylized Z logo (neon stroke) -->
+        <div class="logo-svg" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0%" stop-color="#ff963f"/>
+                <stop offset="100%" stop-color="#00e5ff"/>
+              </linearGradient>
+              <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <!-- circular glow bg -->
+            <circle cx="50" cy="50" r="45" fill="url(#g1)" opacity="0.14"/>
+            <!-- stylized 'Z' path -->
+            <path d="M20 20 H78 L22 80 H80" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#f1)"/>
+          </svg>
+         </div>
+        <div class="logo-text">YRA</div>
+      </div>
+
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="life.html">Life on Zyra</a></li>
+        <li><a href="ai.html">AI Core</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero" id="home">
+      <div class="orbs" aria-hidden="true">
+        <div class="orb o1"></div>
+        <div class="orb o2"></div>
+        <div class="orb o3"></div>
+        <div class="orb o4"></div>
+      </div>
+
+      <h1>WELCOME TO PLANET ZYRA</h1>
+      <div class="subtitle">The Code-Based World of Infinite Possibilities...!</div>
+
+      <!-- Explore button (pointer-events enabled) -->
+      
+      <a class="explore-btn" href="about.html">Explore the World</a>
+    </div>
+  </div>
+
+  <!-- keep your existing three.js galaxy script (only slight variable names same as you gave) -->
+  <script type="module">
+    import * as THREE from "https://cdn.skypack.dev/three@0.132.2";
+    import { OrbitControls } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/controls/OrbitControls.js";
+
+    const canvas = document.querySelector("canvas.webgl");
+    const scene = new THREE.Scene();
+
+    const parameters = {
+      count: 100000,
+      size: 0.01,
+      radius: 2.15,
+      branches: 3,
+      spin: 3,
+      randomness: 5,
+      randomnessPower: 4,
+      insideColor: "#ff6030",
+      outsideColor: "#0949f0",
+    };
+
+    let geometry = null;
+    let material = null;
+    let points = null;
+
+    const generateGalaxy = () => {
+      if (points !== null) {
+        geometry.dispose();
+        material.dispose();
+        scene.remove(points);
+      }
+
+      geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(parameters.count * 3);
+      const colors = new Float32Array(parameters.count * 3);
+
+      const colorInside = new THREE.Color(parameters.insideColor);
+      const colorOutside = new THREE.Color(parameters.outsideColor);
+
+      for (let i = 0; i < parameters.count; i++) {
+        const i3 = i * 3;
+        const radius = Math.pow(Math.random() * parameters.randomness, Math.random() * parameters.radius);
+        const spinAngle = radius * parameters.spin;
+        const branchAngle = ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
+
+        const negPos = [1, -1];
+        const randomX = Math.pow(Math.random(), parameters.randomnessPower) * negPos[Math.floor(Math.random() * negPos.length)];
+        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * negPos[Math.floor(Math.random() * negPos.length)];
+        const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * negPos[Math.floor(Math.random() * negPos.length)];
+
+        positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
+        positions[i3 + 1] = randomY;
+        positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+        const mixedColor = colorInside.clone();
+        mixedColor.lerp(colorOutside, Math.random() * radius / parameters.radius);
+
+        colors[i3] = mixedColor.r;
+        colors[i3 + 1] = mixedColor.g;
+        colors[i3 + 2] = mixedColor.b;
+      }
+
+      geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+      material = new THREE.PointsMaterial({
+        size: parameters.size,
+        sizeAttenuation: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        vertexColors: true,
+      });
+
+      points = new THREE.Points(geometry, material);
+      scene.add(points);
+    };
+    generateGalaxy();
+
+    const sizes = { width: window.innerWidth, height: window.innerHeight };
+
+    const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+    camera.position.set(3, 3, 3);
+    scene.add(camera);
+
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+
+    const renderer = new THREE.WebGLRenderer({ canvas });
+    renderer.setSize(sizes.width, sizes.height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    window.addEventListener("resize", () => {
+      sizes.width = window.innerWidth;
+      sizes.height = window.innerHeight;
+      camera.aspect = sizes.width / sizes.height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(sizes.width, sizes.height);
+    });
+
+    const clock = new THREE.Clock();
+    const tick = () => {
+      const elapsedTime = clock.getElapsedTime();
+      controls.update();
+      camera.position.x = Math.cos(elapsedTime * 0.05) * 3;
+      camera.position.z = Math.sin(elapsedTime * 0.05) * 3;
+      camera.lookAt(0, 0, 0);
+      renderer.render(scene, camera);
+      window.requestAnimationFrame(tick);
+    };
+    tick();
+  </script>
+</body>
+</html>

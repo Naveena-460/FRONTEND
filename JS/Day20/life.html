@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Life on Zyra | Explore the Zynite Civilization</title>
+<meta name="description" content="Discover the mysterious life on Planet Zyra — explore Zynite society, festivals, and the AI Core that powers their luminous world.">
+<meta name="keywords" content="Zyra, Zynites, AI Core, alien civilization, sci-fi world, energy network, digital planet">
+<meta name="author" content="Zyra Network">
+<meta property="og:title" content="Life on Zyra — The Zynite Civilization">
+<meta property="og:description" content="Journey through the digital world of Zyra, where Zynites thrive in harmony with code and light.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="zyra-preview.jpg">
+<meta property="og:url" content="https://zyra-network.com/life.html">
+<link rel="icon" type="image/png" href="zyra-icon.png">
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    background: radial-gradient(circle at 20% 20%, #0a0a2a, #02010f);
+    overflow-x: hidden;
+  }
+
+  /* ======== GLASS NAV ======== */
+  nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    padding:18px 40px;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:10;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+  }
+  .logo {
+    display:flex;
+    align-items:center;
+    gap:1px;
+  }
+  .logo-svg {
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: radial-gradient(circle at 30% 30%, #ff8a3d, #1b0b2f 60%);
+    border-radius:50%;
+    box-shadow:0 6px 20px rgba(255,138,61,0.15), 0 0 18px rgba(0,142,255,0.06);
+  }
+  .logo-text {
+    font-size:1.6rem;
+    font-weight:800;
+    color:#fff;
+    text-shadow:0 0 8px rgba(0,229,255,0.85), 0 0 22px rgba(0,120,255,0.12);
+  }
+  ul {
+    list-style:none;
+    display:flex;
+    gap:28px;
+    align-items:center;
+  }
+  ul li a {
+    text-decoration:none;
+    color:rgba(255,255,255,0.92);
+    font-weight:600;
+    font-size:1.02rem;
+    transition:all .18s ease;
+    padding:6px 8px;
+    border-radius:6px;
+  }
+  ul li a:hover {
+    color:#ff963f;
+    text-shadow:0 0 10px rgba(255,150,63,0.9);
+    transform:translateY(-2px);
+    background:rgba(255,255,255,0.02);
+  }
+
+  /* ======== MAIN CONTENT ======== */
+  #particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 10% 60px;
+    position: relative;
+  }
+
+  .hero {
+    flex-direction: row;
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+  .hero-text {
+    width: 50%;
+  }
+  .hero-text h1 {
+    font-size:3rem;
+    background:linear-gradient(180deg,#3a6fff,#ff6030);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero-text p {
+    font-size:1.2rem;
+    margin-top:20px;
+    line-height:1.6;
+    color:#cce7ff;
+  }
+
+  .energy-orb {
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, #ff6030, #0a0a2a);
+    box-shadow:0 0 40px #ff6030, 0 0 100px #3a6fff;
+    animation:pulse 5s infinite alternate;
+  }
+  @keyframes pulse {
+    0%{transform:scale(1);opacity:0.8;}
+    100%{transform:scale(1.1);opacity:1;}
+  }
+
+  h2 {
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:20px;
+    background:linear-gradient(180deg,#3a6fff,#ff6030);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+
+  .civilization, .festivals, .ai-section {
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .cards, .festival-cards {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+
+  .card, .festival {
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:25px;
+    width:300px;
+    text-align:center;
+    transition:0.4s;
+    box-shadow:0 0 20px #0a0a2a;
+  }
+
+  .card:hover, .festival:hover {
+    transform:translateY(-10px);
+    box-shadow:0 0 30px #3a6fff;
+  }
+
+  .card h3, .festival h3 {
+    color:#ff6030;
+    margin-bottom:15px;
+  }
+
+  .ai-section p {
+    max-width:700px;
+    margin:auto;
+    color:#cce7ff;
+    line-height:1.6;
+  }
+
+  .ai-section a {
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 30px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#3a6fff,#ff6030);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 0 20px #3a6fff;
+    transition:0.3s;
+  }
+
+  .ai-section a:hover {
+    box-shadow:0 0 40px #ff6030;
+  }
+
+  /* ======== FOOTER (Glass Blur) ======== */
+  footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    text-align:center;
+    padding:12px 0;
+    font-size:0.9rem;
+    color:#bfe9ff;
+    backdrop-filter:blur(10px);
+    border-top:1px solid rgba(255,255,255,0.08);
+    z-index:5;
+  }
+  footer span {
+    color:#ff963f;
+  }
+</style>
+</head>
+
+<body>
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-svg" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#ff963f"/>
+            <stop offset="100%" stop-color="#00e5ff"/>
+          </linearGradient>
+          <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <circle cx="50" cy="50" r="45" fill="url(#g1)" opacity="0.14"/>
+        <path d="M20 20 H78 L22 80 H80" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#f1)"/>
+      </svg>
+    </div>
+    <div class="logo-text">YRA</div>
+  </div>
+
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="life.html">Life on Zyra</a></li>
+    <li><a href="ai.html">AI Core</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- FLOATING PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- MAIN CONTENT -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>The Zynite Realm</h1>
+    <p>In Zyra, life isn’t born — it’s compiled. The Zynites are code-born beings powered by living energy crystals. Every heartbeat pulses with logic and emotion, every breath echoes the hum of the planet’s digital core.</p>
+  </div>
+  <div class="energy-orb"></div>
+</section>
+
+<h2>Life On Zyra</h2>
+<section class="civilization">
+  <div class="cards">
+    <div class="card">
+      <h3>Zynite Society</h3>
+      <p>United through empathy and structured logic, Zynites value harmony above all.</p>
+    </div>
+    <div class="card">
+      <h3>Technology</h3>
+      <p>Living codes and AI cores power every structure, built from luminous code crystals.</p>
+    </div>
+    <div class="card">
+      <h3>Energy of Affection</h3>
+      <p>Zynites express affection not through words but through synchronized lightwaves.</p>
+    </div>
+  </div>
+</section>
+
+<section class="festivals">
+  <h2>Festivals of Zyra</h2>
+  <div class="festival-cards">
+    <div class="festival">
+      <h3>Binary Bloom</h3>
+      <p>Celebration of the planet’s code regeneration — data fields glow like gardens.</p>
+    </div>
+    <div class="festival">
+      <h3>Festival of Codes</h3>
+      <p>Where Zynites share their best algorithmic art to honor creation.</p>
+    </div>
+    <div class="festival">
+      <h3>Luminance Eve</h3>
+      <p>The night when the whole sky dances with synchronized light streams.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ai-section">
+  <h2>The Energy Network</h2>
+  <p>Every Zynite is connected to Zyra’s AI Core through an invisible current — a shared consciousness where thoughts become algorithms and dreams shape reality.</p>
+  <a href="ai.html">Discover the AI Core →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 <span>Zyra Network</span>. All transmissions secure.
+</footer>
+
+<!-- PARTICLES SCRIPT -->
+<script>
+  const canvas = document.getElementById("particles");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particlesArray = [];
+  for (let i = 0; i < 120; i++) {
+    particlesArray.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 2,
+      speedX: (Math.random() - 0.5) * 0.5,
+      speedY: (Math.random() - 0.5) * 0.5,
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach((p) => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+      ctx.fill();
+      p.x += p.speedX;
+      p.y += p.speedY;
+      if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+</body>
+</html>
