@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>forin loop</h1>
+    <script>
+      
+let person = { name: "Naveena", age: 22, city: "Chennai" };
+for (let key in person) {
+  console.log(key, ":", person[key]);
+}
+
+let fruits = ["apple", "banana", "grape"];
+for (let i in fruits) {
+  console.log(i, ":", fruits[i]);
+}
+
+let student = { name: "Arun", mark: 85, grade: "A" };
+for (let info in student) {
+  console.log(info , student[info]);
+}
+
+let house={room:4,floor:2,color:"blue"}
+for(let i in house){
+    console.log(i,":", house[i]);
+    
+}
+let details = { name: "navi", age: 20, job: "developer" };
+for (let k in details) {
+  console.log("Value:", details[k]);
+}
+let nums = [10, 20, 30];
+for (let n in nums) {
+  console.log("Index:", n);
+}
+
+let book = { title: "JS Guide", author: "John" };
+for (let b in book) {
+  if (b === "author")
+   console.log(" Author found!");
+}
+
+
+let word = "Tea";
+for (let ch of word) {
+  console.log(ch);
+}
+
+
+let num = [1, 2, 3, 4];
+for (let n of num) {
+  console.log("Number:", n);
+}
+
+    </script>
+</body>
+</html>
+
+
