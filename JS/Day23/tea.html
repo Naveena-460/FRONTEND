@@ -7,21 +7,35 @@
 </head>
 <body>
     <h1>Tea Shop</h1>
-    <script>
+    <script>  
         const menu=[{name:"ginger tea",price:30},{name:"black tea",price:20},{name:"Masala tea",price:10},{name:"tea",price:10}];
-        console.log("The Menu:",menu);
+        console.log ("MENU");
+        menu.forEach(item=>{
+        console.log(item.name,"-",item.price); 
+       })
 
         const income=[{day1:2000},{day2:3000},{day3:5000}];
         income.push({day4:5000});
-        console.log(income);
+        console.log("Add per day income:",income);
 
-       const day1_income=[20,10,30,55,90,80,40,70,90,95,100];
-       let total=day1_income.reduce((high,c)=>high+c,0);
+        const day1_income=[20,10,30,55,90,80,40,70,90,95,100];
+        let total=day1_income.reduce((high,c)=>high+c,0);
         console.log("total amount:",total);
         
-      const
-        
-        
+        const order=[];
+        order.push(menu[0]);
+        order.push(menu[2]);
+        console.log("ordered items:",order);
+        let total_bill=order.reduce((sum,c)=>sum+c.price,0);
+        console.log("you pay rs:",total_bill);
+
+        let filter_item = menu.filter(t => t.price > 20);
+        console.log("Teas above 20:", filter_item);
+
+
+        let masala = menu.find(t => t.name === "Masala tea");
+        console.log("Yah masala tea is available" );
+
     </script>
 </body>
 </html>
