@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hide button</title>
+</head>
+<body style="text-align: center;">
+    <h1 style="background-color: rgb(199, 79, 143);">HIDE BUTTON</h1>
+    <button style="background-color: thistle;" id="button">hide button</button>
+    <p id="show"></p>
+    <script>
+        const hide_button=document.getElementById("button");
+        const showing=document.getElementById("show");
+        hide_button.addEventListener("click",()=>{
+            hide_button.style.display="none";
+           showing.innerHTML="<b>This button is hide</b> ";
+        })
+    </script>
+</body>
+</html>

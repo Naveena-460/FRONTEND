@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tea shop</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h1{
+            background-color:rgb(112, 59, 22);
+            border-radius:3px;
+            padding:20px;
+        }
+        button{
+            background-color:chocolate;
+            margin: 20px;
+            padding:10px 20px;
+            border-radius: 3px;
+            font-size:20px;
+            border:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>RAFA TEA SHOP</h1>
+    <button id="show_product">Available products</button>
+    <div id="product_list"></div>
+    <button id="pay_button">payment</button>
+    <img src="" id="imgs" alt="">
+
+    <script>
+        let product=["tea","coffee","milk","boost"];
+        const show_product_btn=document.getElementById("show_product");
+        const pro_list=document.getElementById("product_list");
+        const images=document.getElementById("imgs");
+        const payment=document.getElementById("pay_button");
+         payment.style.display="none";
+        show_product_btn.addEventListener("click",()=>{
+            pro_list.innerHTML=" ";
+            product.forEach((item)=>{
+                let btn=document.createElement( "button");
+                btn.textContent=item; 
+                btn.onclick=function(){
+                payment.style.display="inline-block";
+                };
+
+                payment.onclick=function(){
+                alert("you pay rs 20");
+                   images.src="tea.jpg";
+                   images.style.display="block";
+                  
+                   }
+         pro_list.appendChild(btn);
+  });
+});
+    </script>
+</body>
+</html>

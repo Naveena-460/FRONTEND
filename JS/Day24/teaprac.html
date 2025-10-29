@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tea Shop DOM</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    h1 {
+      background-color: brown;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    button {
+      background-color: chocolate;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    img {
+      margin-top: 20px;
+      width: 200px;
+      display: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>☕ RAFA TEA SHOP ☕</h1>
+  <button id="showBtn">Available Products</button>
+
+  <div id="productBox"></div>
+  <button id="payBtn" style="display:none;">Payment</button>
+  <img id="teaImg" src="" alt="Product Image">
+
+  <script>
+    // Step 1: Product data
+    const products = [
+      { name: "Tea", img: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Black_tea_cup.jpg" },
+      { name: "Coffee", img: "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" },
+      { name: "Biscuits", img: "https://upload.wikimedia.org/wikipedia/commons/7/70/Biscuits_with_tea.jpg" },
+      { name: "Snacks", img: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Indian_snacks.jpg" }
+    ];
+
+    // Step 2: Get all HTML elements
+    const showBtn = document.getElementById("showBtn");
+    const productBox = document.getElementById("productBox");
+    const payBtn = document.getElementById("payBtn");
+    const teaImg = document.getElementById("teaImg");
+
+    let selectedProduct = null;
+
+    // Step 3: Show product buttons when "Available Products" clicked
+    showBtn.addEventListener("click", () => {
+      productBox.innerHTML = ""; // clear previous
+      products.forEach((p) => {
+        const btn = document.createElement("button");
+        btn.textContent = p.name;
+        btn.addEventListener("click", () => {
+          selectedProduct = p;
+          payBtn.style.display = "inline-block"; // show payment
+        });
+        productBox.appendChild(btn);
+      });
+    });
+
+    // Step 4: When "Payment" is clicked
+    payBtn.addEventListener("click", () => {
+      if (selectedProduct) {
+        alert("Thank you for your order of " + selectedProduct.name + "!");
+        teaImg.src = selectedProduct.img;
+        teaImg.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
