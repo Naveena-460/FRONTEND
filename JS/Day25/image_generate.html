@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generate images</title>
+    <style>
+        body{
+            text-align: center;
+            justify-items: center;
+        }
+        h1{
+           background-color:rgb(83, 43, 14);
+           color:white;
+           
+        }
+        button{
+               background-color:rgb(83, 43, 14);
+               color:white;
+               padding:10px;
+               display: block;
+               margin:20px;
+        }
+
+       p{
+           color:rgb(83, 43, 14);
+           font-size: medium;
+           font-weight: bold;
+       } 
+    </style>
+</head>
+<body>
+    <h1 >GENERATE CHOCOLATE IMAGES</h1>
+    <input type="search" id="inputdata">
+    <button id="btn">Generate</button>
+    <p id="para"></p>
+    <img src="" id="img">
+    <script>
+       let generate={
+       dairymilk:"images/img1.jpg",
+       kitkat:"images/img2.jpg",
+       fivestar:"images/img3.jpg",
+       perk:"images/img4.jpg",
+       munch:"images/img5.jpg",
+       ferrero:"images/img6.jpg",
+       toblerone:"images/img7.jpg",
+       snickers:"images/img8.jpg",
+       Bounty:"images/img9.jpg",
+       milkybar:"images/img10.jpg"
+     };
+       const button=document.getElementById("btn");
+       const images=document.getElementById("img");
+       const text=document.getElementById("para");
+       button.addEventListener('click',()=>{
+      const search_item=document.getElementById("inputdata").value;
+      if(generate[search_item])
+      {
+       text.innerHTML=`Your Search Result:${search_item}`;
+        images.src=generate[search_item];
+        images.style.display="block";
+    }
+    else{
+       text.innerHTML=`Sorry!${search_item} is Not Found`;
+       images.style.display="none";
+    }
+       })
+    </script>
+</body>
+</html> 
+
