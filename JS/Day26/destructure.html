@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Destructuring Example</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
+      background-color:white;
+    }
+    h1 {
+      background-color: #2b140cff;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .box {
+      margin: 20px auto;
+      width: 60%;
+      background-color: #fff3e0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <h1> Chocolate Product Details </h1>
+  <div id="output" class="box"></div>
+
+  <script>
+ 
+    const chocolate = {
+      name: "Dairy Milk",
+      brand: "Cadbury",
+      type: "Milk Chocolate",
+      price: 80,
+      weight: "100g",
+      flavor: "Classic",
+      country: "India",
+      rating: 4.8,
+      stock: "Available",
+      expiry: "Dec 2025"
+    };
+
+
+    const { name, brand, type, price, weight, flavor, country, rating, stock, expiry } = chocolate;
+
+
+    const output = document.getElementById("output");
+
+    output.innerHTML = `
+      <b>Product Name:</b> ${name}<br>
+      <b>Brand:</b> ${brand}<br>
+      <b>Type:</b> ${type}<br>
+      <b>Price:</b> ₹${price}<br>
+      <b>Weight:</b> ${weight}<br>
+      <b>Flavor:</b> ${flavor}<br>
+      <b>Country:</b> ${country}<br>
+      <b>Rating:</b> ${rating}<br>
+      <b>Stock:</b> ${stock}<br>
+      <b>Expiry:</b> ${expiry}
+    `;
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>spread operator</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff3f3;
+    }
+    h1 {
+      background-color: #c20b48ff;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .box {
+      background-color: #c20b48ff;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 60%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 18px;
+    }
+    p {
+      background-color: #fff;
+      margin: 10px auto;
+      width: 80%;
+      border-radius: 5px;
+      padding: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1> Welcome to Toys Shop </h1>
+  <div id="display" class="box"></div>
+
+  <script>
+   
+    const softToys = ["Teddy Bear", "Barbie Doll", "Panda Toy", "Soft Rabbit", "Unicorn Toy"];
+
+  
+    const plasticToys = ["Toy Car", "Robot", "Action Figure", "Lego Set", "Train Toy"];
+
+    
+    const allToys = [...softToys, ...plasticToys];
+
+   
+    const result = document.getElementById("display");
+    result.innerHTML = `<b> Available Toys:</b><br><br>`;
+
+    allToys.forEach((toy, index) => {
+      result.innerHTML += `<p>${index + 1}. ${toy}</p>`;
+    });
+
+  
+    console.log(...allToys);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rest operator</title>
+</head>
+<body style="text-align:center;">
+<h1 style="background-color:black;color:white;">Zyra Book Store</h1>
+<div id="output"></div>
+
+<script>
+
+let books = [120, 350, 250, 500, 150, 700, 300, 450, 800, 200];
+
+
+function showBooks(first, second, ...remainingBooks) {
+    const output = document.getElementById("output");
+   
+  
+    output.innerHTML += "<h3>All Book Prices:</h3>";
+    books.forEach((b, i) => {
+        output.innerHTML += `<p>${i + 1}. ₹${b}</p>`;
+    });
+
+    
+    let costly = books.filter(b => b > 300);
+    output.innerHTML += `<h3>Books Above ₹300: ${costly.join(", ")}</h3>`;
+
+    
+    let premium = books.find(b => b > 600);
+    output.innerHTML += `<h3>First Premium Book: ₹${premium}</h3>`;
+
+   
+    let discount = books.map(b => b - b * 0.1);
+    output.innerHTML += `<h3>After 10% Discount: ${discount.join(", ")}</h3>`;
+
+   
+    let total = books.reduce((acc, val) => acc + val, 0);
+    output.innerHTML += `<h3>Total Book Price: ₹${total}</h3>`;
+}
+
+
+showBooks(...books);
+
+</script>
+</body>
+</html>

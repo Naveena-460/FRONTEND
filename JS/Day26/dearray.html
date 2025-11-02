@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array with Destructuring</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #fff6f5ff;
+    }
+    h1 {
+      background-color: chocolate;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .box {
+      background-color: #fff3e0;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 60%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1> My Tea Shop Menu </h1>
+  <div id="output" class="box"></div>
+
+  <script>
+   
+    const teaItems = [
+      "Ginger Tea",
+      "Masala Tea",
+      "Green Tea",
+      "Lemon Tea",
+      "Black Tea",
+      "Cardamom Tea",
+      "Tulsi Tea",
+      "Elaichi Tea",
+      "Herbal Tea",
+      "Iced Tea"
+    ];
+
+  
+    const [
+      item1, item2, item3, item4, item5,
+      item6, item7, item8, item9, item10
+    ] = teaItems;
+
+    
+    const output = document.getElementById("output");
+    output.innerHTML = `
+      <p>1. ${item1}</p>
+      <p>2. ${item2}</p>
+      <p>3. ${item3}</p>
+      <p>4. ${item4}</p>
+      <p>5. ${item5}</p>
+      <p>6. ${item6}</p>
+      <p>7. ${item7}</p>
+      <p>8. ${item8}</p>
+      <p>9. ${item9}</p>
+      <p>10. ${item10}</p>
+    `;
+  </script>
+</body>
+</html>
