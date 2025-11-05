@@ -1,0 +1,38 @@
+<script>
+
+let hour = 11;
+let minute = 55;
+
+console.log(" Countdown started...");
+
+
+let timer = setInterval(() => {
+  minute++;
+
+  
+  if (minute === 60) {
+    minute = 0;
+    hour++;
+
+  }
+
+  console.log(hour,minute);
+  if (hour === 12 && minute === 0) {
+    clearInterval(timer);
+    console.log(" It's 12:00! Happy Birthday!");
+
+    setTimeout(() => {
+      console.log(" Music started...");
+      setTimeout(()=>{
+      console.log(" Cake cutting...");
+       setTimeout(()=>{
+      console.log(" Gifts opening...");
+       setTimeout(()=>{
+      console.log(" Friends shouting: Happy Birthday!!!");
+    }, 2000);
+},3000); 
+},3000);
+},3000);
+}
+}, 3000); 
+</script> 

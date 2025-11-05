@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Traditional Books</title>
+    <link rel="stylesheet" href="assests/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>Tamil Heritage Books</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#register">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner" id="home">
+        <img src="assests/img/banner_1.webp" alt="banner" width="1366px" height="200px">
+    </section>
+
+    <!-- Search -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search Tamil Books...">
+        <button id="searchBtn">Search</button>
+    </div>
+
+    <!-- Book Cards -->
+    <section class="book-section">
+        <div id="bookContainer" class="book-container">
+            <!-- Cards will be inserted dynamically -->
+        </div>
+    </section>
+
+    <!-- Aside Banner -->
+    <aside class="aside-banner">
+        <h3>"தமிழ் என் உயிர்!"</h3>
+        <p>Experience the richness of Tamil literature and wisdom.</p>
+        <button id="quoteBtn">Register for a Tamil Quote</button>
+    </aside>
+
+    <!-- Register Form -->
+    <section id="register" class="register-form hidden">
+        <h2>Register Your Favourite Quote</h2>
+        <form id="regForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="tel" id="mobile" placeholder="Mobile Number" required>
+            <input type="text" id="quote" placeholder="Tamil Quote" required>
+            <input type="text" id="bookName" placeholder="Book Name" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Tamil Heritage Books | Designed by Code Smiths</p>
+    </footer>
+
+    <script >
+        // Tamil Books Data
+const books = [
+    { name: "Thirukkural", img: "assests/img/thirukural.jpg" },
+    { name: "Silappathikaram", img: "assests/img/silapathikaram.webp" },
+    { name: "Manimekalai", img: "assests/img/mani.jpeg" },
+    { name: "Purananuru", img: "assests/img/purananuru.jpg" },
+    { name: "Akananuru", img: "assests/img/agananuru.jpeg" },
+    { name: "Naladiyar", img: "assests/img/naladiyay.jpg" },
+    { name: "Pathitrupathu", img: "assests/img/patthirapau.jpeg" },
+    { name: "Periya Puranam", img: "assests/img/peryauranam.jpeg" },
+];
+
+// Display Books
+const container = document.getElementById("bookContainer");
+function displayBooks(list) {
+    container.innerHTML = "";
+    list.forEach(book => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+            <img src="${book.img}" alt="${book.name}">
+            <h3>${book.name}</h3>
+        `;
+        container.appendChild(card);
+    });
+}
+displayBooks(books);
+
+// Search
+document.getElementById("searchBtn").addEventListener("click", () => {
+    const searchText = document.getElementById("searchInput").value.toLowerCase();
+    const filtered = books.filter(b => b.name.toLowerCase().includes(searchText));
+    displayBooks(filtered);
+});
+
+// Aside → Form Navigation
+document.getElementById("quoteBtn").addEventListener("click", () => {
+    document.querySelector(".register-form").classList.remove("hidden");
+    window.scrollTo(0, document.querySelector(".register-form").offsetTop);
+});
+
+// Store Form Data
+let registrations = [];
+document.getElementById("regForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const userData = {
+        name: document.getElementById("name").value,
+        mobile: document.getElementById("mobile").value,
+        quote: document.getElementById("quote").value,
+        bookName: document.getElementById("bookName").value
+    };
+    registrations.push(userData);
+    alert("Form Submitted Successfully!");
+    console.log("Registered Data:", registrations);
+    e.target.reset();
+});
+
+    </script>
+</body>
+</html>
