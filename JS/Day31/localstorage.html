@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Local storage - Fixed</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #faf7f2;
+      color: #222;
+    }
+
+    h1 {
+      background: #7b4b24;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    form {
+      margin-top: 14px;
+      background: #fff;
+      padding: 14px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      max-width: 980px;
+    }
+
+   
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #4b2f1b;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .controls {
+      margin-top: 10px;
+    }
+
+    button {
+      background: #8b4513;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #9e5a27;
+    }
+
+    
+    table {
+      width: 100%;
+      margin-top: 18px;
+      border-collapse: collapse;
+      background: #fff;
+      max-width: 1200px;
+    }
+
+    th,
+    td {
+      padding: 10px 8px;
+      border: 1px solid #eee;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f6f1ec;
+      color: #5b3f2b;
+    }
+
+  
+  </style>
+</head>
+
+<body>
+
+  <h2>Issue Report Form</h2>
+
+  <form id="myform">
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Enter Your Name">
+
+    <label>Mobile No</label>
+    <input type="tel" id="mob" placeholder="Enter Your Mobile Number">
+
+    <label>Problem</label>
+    <input type="text" id="problem" placeholder="Short problem title">
+
+    <label>Where did it Happen?</label>
+    <input type="text" id="where" placeholder="e.g., Shop Street">
+
+    <label>How do you know?</label>
+    <input type="text" id="how" placeholder="e.g., saw it, message, friend">
+
+    <label>Review</label>
+    <input type="text" id="review" placeholder="Describe the problem in detail...">
+
+    <button id="btn" type="submit">Submit</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>S.no</th>
+        <th>Name</th>
+        <th>Mobile No</th>
+        <th>Problem</th>
+        <th>Where</th>
+        <th>How Know</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody id="tablebody"></tbody>
+  </table>
+
+  <script>
+    const STORAGE_KEY = "datas";
+
+
+    const form = document.getElementById("myform");
+    const nameEl = document.getElementById("name");
+    const mobEl = document.getElementById("mob");
+    const problemEl = document.getElementById("problem");
+    const whereEl = document.getElementById("where");
+    const howEl = document.getElementById("how");
+    const reviewEl = document.getElementById("review");
+    const tableBody = document.getElementById("tablebody");
+
+
+    function loadData() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+
+    function saveData(arr) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+    }
+
+
+    function escapeHtml(text) {
+      if (text == null) return "";
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+
+    function renderTable() {
+      const data = loadData();
+      tableBody.innerHTML = "";
+      if (data.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#666;">No reports yet</td></tr>`;
+        return;
+      }
+      data.forEach((item, i) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${escapeHtml(item.name)}</td>
+        <td>${escapeHtml(item.mobile)}</td>
+        <td>${escapeHtml(item.problem)}</td>
+        <td>${escapeHtml(item.whereHappened)}</td>
+        <td>${escapeHtml(item.how)}</td>
+        <td>${escapeHtml(item.review)}</td>
+      `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+
+    function validate(obj) {
+      if (!obj.name) { alert("Enter name"); return false; }
+      if (!/^\d{10}$/.test(obj.mobile)) { alert("Enter valid 10 digit mobile"); return false; }
+      if (!obj.problem) { alert("Enter problem"); return false; }
+      return true;
+    }
+
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = nameEl.value.trim();
+      const mobile = mobEl.value.trim();
+      const problem = problemEl.value.trim();
+      const whereHappened = whereEl.value.trim();
+      const how = howEl.value.trim();
+      const review = reviewEl.value.trim();
+
+      const newItem = { name, mobile, problem, whereHappened, how, review };
+
+      if (!validate(newItem)) return;
+
+      const arr = loadData();
+      arr.push(newItem);
+      saveData(arr);
+
+      renderTable();
+      form.reset();
+      alert("Report saved ");
+    });
+
+
+    renderTable();
+  </script>
+
+</body>
+
+</html>

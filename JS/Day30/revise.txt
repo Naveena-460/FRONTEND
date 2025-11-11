@@ -1,0 +1,191 @@
+What is DOM (Document Object Model)
+🔹 Definition:
+
+DOM stands for Document Object Model.
+
+It represents the structure of a web page as a tree of objects.
+
+It allows JavaScript to interact with and control web page elements.
+
+🔹 Key Points:
+
+DOM is used to interact and control the web page’s behavior.
+Without JavaScript, a page remains static.
+
+When the webpage loads, JavaScript uses the DOM to detect and respond to user actions (like clicks or typing).
+
+The DOM acts as a bridge between HTML and JavaScript, making web pages dynamic and interactive.
+
+Using DOM, we can add, delete, or modify content, and change styles dynamically.
+
+Every element in a web page is treated as an object in DOM.
+
+JavaScript can select and manipulate elements using DOM methods.
+
+🔹 Common DOM Selection Methods:
+document.getElementById("id");           // Select element by ID
+document.getElementsByClassName("class"); // Select elements by class
+document.querySelector("selector");       // Select first match
+document.querySelectorAll("selector");    // Select all matches
+
+🔹 Example:
+<h2 id="title">Welcome</h2>
+<script>
+  const heading = document.getElementById("title");
+  heading.style.color = "blue";
+  heading.innerText = "Hello, DOM!";
+</script>
+
+ DOM Events
+🔹 Definition:
+
+DOM Events allow web pages to respond to user actions, making them interactive.
+Examples include clicks, key presses, or scrolling.
+
+🔹 Common DOM Events:
+Event	Description
+click	User clicks an element
+mouseover	Mouse hovers over an element
+keydown	A key is pressed
+scroll	Page is scrolled
+submit	Form is submitted
+🔹 Syntax:
+element.addEventListener("event", function);
+
+🔹 Example:
+<button id="btn">Click Me</button>
+<script>
+  document.getElementById("btn").addEventListener("click", () => {
+    alert("Button clicked!");
+  });
+</script>
+
+ Tables in HTML
+🔹 Definition:
+
+HTML tables are used to organize data in rows and columns, making it easier to read and structure information.
+
+🔹 Important Tags:
+Tag	Description
+<table>	Creates a table
+<thead>	Groups the header rows
+<tbody>	Groups the main data rows
+<tr>	Defines a table row
+<th>	Defines a header cell
+<td>	Defines a data cell
+🔹 Attributes:
+
+border → adds border
+
+rowspan → merges cells vertically
+
+colspan → merges cells horizontally
+
+cellpadding → space inside cell
+
+cellspacing → space between cells
+
+🔹 Example:
+<table border="1" cellpadding="5" cellspacing="2">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Naveena</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+
+ Array Methods in JavaScript
+
+Arrays help store multiple values in one variable.
+Array methods make it easy to process or transform data.
+
+🔸 reduce()
+
+Used to reduce an array to a single value (like sum or total).
+
+Syntax:
+
+array.reduce(function(accumulator, currentValue) {
+  // logic
+}, initialValue);
+
+
+Example:
+
+const numbers = [10, 20, 30];
+const total = numbers.reduce((acc, curr) => acc + curr, 0);
+console.log(total); // 60
+
+🔸 map()
+
+Used to create a new array by applying a function to each element.
+Does not modify the original array.
+
+Syntax:
+
+array.map((currentValue, index, array) => {
+  // return new value
+});
+
+
+Example:
+
+const nums = [1, 2, 3];
+const doubled = nums.map(n => n * 2);
+console.log(doubled); // [2, 4, 6]
+
+🔸 filter()
+
+Used to filter out elements that meet a specific condition.
+Returns a new array with matching elements.
+
+Syntax:
+
+array.filter(currentValue => condition);
+
+
+Example:
+
+const numbers = [1, 2, 3, 4, 5];
+const even = numbers.filter(num => num % 2 === 0);
+console.log(even); // [2, 4]
+
+🔸 forEach()
+
+Used to run a function for each element in an array.
+It does not return anything.
+
+Syntax:
+
+array.forEach((currentValue, index, array) => {
+  // perform action
+});
+
+
+Example:
+
+const fruits = ["apple", "banana", "mango"];
+fruits.forEach(fruit => console.log(fruit));
+
+🌐 5️⃣ Fetch API
+🔹 Definition:
+
+The fetch() function is used to get data from a server (API) or send data to it.
+It returns a Promise and works asynchronously, meaning it doesn’t block other code while waiting for a response.
+
+🔹 Syntax:
+fetch(url, options)
+  .then(response => {
+    // handle response
+  })
+  .catch(error => {
+    // handle error
+  });
+
