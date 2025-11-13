@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChennaiJobs - Find Your Dream Job in Chennai</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --primary-dark: #0d47a1;
+      --secondary: #f8f9fa;
+      --accent: #ff6d00;
+      --text-dark: #202124;
+      --text-light: #5f6368;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 1rem 0;
+    }
+    
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/banner.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .card-img-top {
+      object-fit: cover;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+    }
+    
+    .btn-outline-primary {
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+    
+    .feature-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 1;
+    }
+    
+    .carousel-caption {
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      padding: 1.5rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+    }
+    
+    .coupon-code {
+      background: linear-gradient(135deg, #ffecb3, #ffd54f);
+      color: #5d4037;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    
+    .modal-header {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 1.25rem 1.5rem;
+    }
+    
+    .modal-footer {
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .form-control {
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      border: 1px solid #dadce0;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+      border-color: var(--primary);
+    }
+    
+    footer {
+      background: var(--text-dark);
+    }
+    
+    .stat-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(26, 115, 232, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-badge i {
+      margin-right: 0.25rem;
+    }
+    
+    .job-card .card-body {
+      padding: 1.5rem;
+    }
+    
+    .application-card {
+      border-left: 4px solid var(--primary);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 400px;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-briefcase me-2"></i>ChennaiJobs
+      </a>
+      <div class="ms-auto d-flex align-items-center">
+        <a href="#jobs" class="nav-link fw-semibold text-dark me-3">Jobs</a>
+        <a href="#applications" class="nav-link fw-semibold text-dark me-3">Applications</a>
+        <a href="#contact" class="nav-link fw-semibold text-dark me-3">Contact</a>
+        <button id="nav_login" class="btn btn-outline-primary">Login</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="hero-section w-100 d-flex align-items-center">
+    <div class="hero-content text-center text-white container">
+      <h1 class="fw-bold display-5 mb-4">From Your Hometown to Chennai — Work That Travels With You</h1>
+      <p class="lead mb-4">Apply in minutes. Get quick replies. Trusted local hirers.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="#jobs" class="btn btn-light btn-lg px-4">Explore Jobs</a>
+        <a href="#contact" class="btn btn-outline-light btn-lg px-4">Get In Touch</a>
+      </div>
+      <div class="mt-4 d-flex justify-content-center flex-wrap">
+        <div class="stat-badge mx-2">
+          <i class="fas fa-users"></i> 500+ Job Seekers
+        </div>
+        <div class="stat-badge mx-2">
+          <i class="fas fa-building"></i> 100+ Companies
+        </div>
+        <div class="stat-badge mx-2">
+          <i class="fas fa-map-marker-alt"></i> Chennai & Remote
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container my-5">
+    <!-- JOBS SECTION -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="section-title" id="jobs">Available Jobs</h2>
+      
+      </div>
+      <div>
+        <button class="btn btn-outline-secondary" id="refreshJobs">
+         
+        </button>
+      </div>
+    </div>
+
+    <!-- Jobs grid -->
+    <div class="row g-4" id="jobsGrid"></div>
+
+    <!-- Ads carousel -->
+    <div class="mt-5">
+      <h3 class="section-title mb-4">Featured Opportunities</h3>
+      <div id="add" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" id="adsInner"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#add" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#add" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- APPLICATIONS SECTION -->
+  <section class="container my-5" id="applications">
+    <h3 class="section-title">Your Applications</h3>
+    <div class="row" id="appliedCards"></div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="container my-5">
+    <h3 class="section-title">Contact Us</h3>
+    <div class="mx-auto" style="max-width:720px;">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <form id="contactForm">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Name</label>
+              <input id="contactName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" id="contactEmail" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Message</label>
+              <textarea id="contactMsg" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary px-4" type="submit">
+                <i class="fas fa-paper-plane me-2"></i>Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 bg-dark text-light">
+    <div class="container d-md-flex justify-content-between align-items-center">
+      <div class="mb-3 mb-md-0">
+        <h4 class="fw-bold mb-2"><i class="fas fa-briefcase me-2"></i>ChennaiJobs</h4>
+        <p class="small mb-0">Connecting talent with opportunity in Chennai</p>
+      </div>
+      <div class="small">
+        <div class="d-flex flex-wrap">
+          <a href="#jobs" class="text-light text-decoration-none me-3 mb-2">Jobs</a>
+          <a href="#applications" class="text-light text-decoration-none me-3 mb-2">Applications</a>
+          <a href="#contact" class="text-light text-decoration-none me-3 mb-2">Contact</a>
+          <a href="#" class="text-light text-decoration-none mb-2">Privacy Policy</a>
+        </div>
+        <div class="mt-2">© 2025 ChennaiJobs. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Login to ChennaiJobs</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Password</label>
+              <input type="password" class="form-control" id="pass" required>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary px-4" type="submit">Login</button>
+              <div>Don't have an account? <a href="#" class="text-decoration-none" id="openRegister">Register</a></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Create Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="register_form">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Full name</label>
+              <input class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" class="form-control" id="Email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Password</label>
+              <input type="password" class="form-control" id="Pass" required>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-success" type="submit">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="applyModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Apply for Job</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="applyForm">
+            <input type="hidden" id="applyJobId">
+            <div class="mb-2">
+              <label class="form-label fw-semibold">Job</label>
+              <input id="applyJobTitle" class="form-control" readonly>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Your name</label>
+              <input id="applyName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" id="applyEmail" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Phone</label>
+              <input id="applyPhone" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Your hometown</label>
+              <input id="applyTown" class="form-control" placeholder="E.g. Vellore" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Short note </label>
+              <textarea id="applyNote" class="form-control" rows="2"></textarea>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary" type="submit">Submit Application</button>
+            </div>
+          </form>
+          <div id="applyResult" class="mt-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // jobs list (6 entries)
+    const jobs = [
+      { id: 1, title: 'Data Entry — Remote', desc: 'Work-from-home data entry. Basic computer skills, MS Excel helpful.', img: '../assets/images/data.jpg', featured: true },
+      { id: 2, title: 'Desktop Support — Chennai', desc: 'On-site desktop support and basic IT troubleshooting.', img: '../assets/images/desktop.jpg', featured: false },
+      { id: 3, title: 'Delivery Rider — Chennai', desc: 'Part-time delivery rider. Two-wheeler needed.', img: '../assets/images/del.jpg', featured: true },
+      { id: 4, title: 'Retail Sales — Chennai', desc: 'Shop assistant for a local store. Good communication', img: '../assets/images/retail.jpg', featured: false },
+      { id: 5, title: 'Customer Support — Remote', desc: 'Phone-based customer support. English/Tamil', img: '../assets/images/customer.jpg', featured: true },
+      { id: 6, title: 'Tutor — Maths/Science', desc: 'Part-time tuition for high-school students', img: '../assets/images/tutor.jpg', featured: false }
+    ];
+
+    const storage = {
+      getUsers() { return JSON.parse(localStorage.getItem('cj_users') || '[]'); },
+      saveUsers(u) { localStorage.setItem('cj_users', JSON.stringify(u)); },
+      getApps() { return JSON.parse(localStorage.getItem('cj_apps') || '[]'); },
+      saveApps(a) { localStorage.setItem('cj_apps', JSON.stringify(a)); },
+      setCurrent(user) { localStorage.setItem('cj_current', JSON.stringify(user)); },
+      getCurrent() { return JSON.parse(localStorage.getItem('cj_current') || 'null'); }
+    };
+
+    // render all 6 jobs as equal cards in 3-per-row layout
+    function renderJobsGrid() {
+      const grid = document.getElementById('jobsGrid'); grid.innerHTML = '';
+      jobs.forEach(j => {
+        const col = document.createElement('div'); col.className = 'col-md-4';
+        col.innerHTML = `
+          <div class="card job-card h-100">
+            ${j.featured ? '<div class="feature-badge">Featured</div>' : ''}
+            <div class="ratio ratio-4x3">
+              <img src="${j.img}" class="card-img-top img-fluid" alt="${j.title}">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">${j.title}</h5>
+              <p class="card-text text-muted small">${j.desc}</p>
+              <div class="mt-auto d-flex justify-content-end">
+                <button class="btn btn-outline-primary btn-sm" onclick="openApply(${j.id})">Apply Now</button>
+              </div>
+            </div>
+          </div>`;
+        grid.appendChild(col);
+      });
+    }
+
+    // ads carousel: use same job images, wrapped with Bootstrap ratio for consistent sizing
+    function renderAds() {
+      const ads = document.getElementById('adsInner'); ads.innerHTML = '';
+      for (let i = 0; i < jobs.length; i++) {
+        const job = jobs[i];
+        const div = document.createElement('div');
+        div.className = 'carousel-item' + (i === 0 ? ' active' : '');
+        div.innerHTML = `
+          <div class="ratio ratio-16x9">
+            <img src="${job.img}" class="d-block w-100" alt="${job.title}">
+          </div>
+          <div class="carousel-caption text-start">
+            <h4 class="mb-2">${job.title}</h4>
+            <p class="mb-0">${job.desc}</p>
+          </div>`;
+        ads.appendChild(div);
+      }
+    }
+
+    // open apply modal with selected job
+    function openApply(jobId) {
+      const job = jobs.find(j => j.id === jobId);
+      document.getElementById('applyJobId').value = jobId; 
+      document.getElementById('applyJobTitle').value = job.title;
+      const cur = storage.getCurrent();
+      if (cur) { 
+        document.getElementById('applyName').value = cur.name || ''; 
+        document.getElementById('applyEmail').value = cur.email || ''; 
+      } else { 
+        document.getElementById('applyName').value = ''; 
+        document.getElementById('applyEmail').value = ''; 
+      }
+      document.getElementById('applyPhone').value = ''; 
+      document.getElementById('applyNote').value = ''; 
+      document.getElementById('applyTown').value = '';
+      const modal = new bootstrap.Modal(document.getElementById('applyModal')); 
+      modal.show();
+    }
+
+    function genCoupon() { 
+      return 'CPN-' + Math.random().toString(36).slice(2, 8).toUpperCase(); 
+    }
+
+    // apply submit -> save and show in Applications section (no images)
+    document.getElementById('applyForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const jobId = parseInt(document.getElementById('applyJobId').value);
+      const job = jobs.find(j => j.id === jobId) || { title: 'Unknown' };
+      const name = document.getElementById('applyName').value.trim();
+      const email = document.getElementById('applyEmail').value.trim();
+      const phone = document.getElementById('applyPhone').value.trim();
+      const town = document.getElementById('applyTown').value.trim();
+      const note = document.getElementById('applyNote').value.trim();
+      const apps = storage.getApps();
+      const coupon = genCoupon();
+      const app = { 
+        id: Date.now(), 
+        jobId, 
+        jobTitle: job.title, 
+        name, 
+        email, 
+        phone, 
+        town, 
+        note, 
+        date: new Date().toISOString(), 
+        coupon 
+      };
+      apps.push(app); 
+      storage.saveApps(apps);
+      document.getElementById('applyResult').innerHTML = `
+        <div class="alert alert-success d-flex align-items-center">
+          <i class="fas fa-check-circle me-2 fs-5"></i>
+          <div>
+            <div class="fw-bold">Application Submitted Successfully!</div>
+            <div>Your reward code: <span class="coupon-code">${coupon}</span></div>
+          </div>
+        </div>`;
+      renderApplications();
+      setTimeout(() => { 
+        const m = bootstrap.Modal.getInstance(document.getElementById('applyModal')); 
+        if (m) m.hide(); 
+        document.getElementById('applyResult').innerHTML = ''; 
+      }, 2000);
+    });
+
+    // render Applications as cards WITHOUT images (details only)
+    function renderApplications() {
+      const container = document.getElementById('appliedCards'); 
+      container.innerHTML = '';
+      const apps = storage.getApps().slice().reverse();
+      if (apps.length === 0) { 
+        container.innerHTML = `
+          <div class="col-12 text-center py-5">
+            <i class="fas fa-file-alt fs-1 text-muted mb-3"></i>
+            <h5 class="text-muted">No applications yet</h5>
+            <p class="text-muted">Apply for a job to see it here.</p>
+          </div>`; 
+        return; 
+      }
+      apps.forEach(a => {
+        const col = document.createElement('div'); 
+        col.className = 'col-md-6 col-lg-4 mb-4';
+        col.innerHTML = `
+          <div class="card application-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">${a.jobTitle}</h5>
+              <p class="card-text small text-muted">
+                Applied by <strong>${a.name}</strong> • ${a.town}
+              </p>
+              <p class="mb-2">${a.note || 'No note provided'}</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-muted">${new Date(a.date).toLocaleString()}</small>
+                <div class="text-end">
+                  <div class="fw-bold text-primary">${a.coupon}</div>
+                  <div class="small text-muted">Ref: ${a.id}</div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+        container.appendChild(col);
+      });
+    }
+
+    // Register/Login handlers
+    document.getElementById('register_form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('Email').value.trim();
+      const pass = document.getElementById('Pass').value;
+      const users = storage.getUsers();
+      if (users.find(u => u.email === email)) { 
+        alert('Email already registered.'); 
+        return; 
+      }
+      users.push({ name, email, pass }); 
+      storage.saveUsers(users);
+      storage.setCurrent({ name, email }); 
+      updateUI();
+      const modal = bootstrap.Modal.getInstance(document.getElementById('registerModal')); 
+      if (modal) modal.hide();
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim(); 
+      const pass = document.getElementById('pass').value;
+      const users = storage.getUsers(); 
+      const u = users.find(x => x.email === email && x.pass === pass);
+      if (!u) { 
+        alert('Invalid credentials'); 
+        return; 
+      }
+      storage.setCurrent({ name: u.name, email: u.email }); 
+      updateUI();
+      const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal')); 
+      if (modal) modal.hide();
+    });
+
+    document.getElementById('openRegister').addEventListener('click', function (e) { 
+      e.preventDefault(); 
+      const m = bootstrap.Modal.getInstance(document.getElementById('loginModal')); 
+      if (m) m.hide(); 
+      new bootstrap.Modal(document.getElementById('registerModal')).show(); 
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function (e) { 
+      e.preventDefault(); 
+      alert('Thanks — message recorded (demo).'); 
+      document.getElementById('contactForm').reset(); 
+    });
+
+    function updateUI() {
+      const cur = storage.getCurrent(); 
+      const btn = document.getElementById('nav_login');
+      if (cur) {
+        btn.textContent = 'Logout'; 
+        btn.classList.remove('btn-outline-primary'); 
+        btn.classList.add('btn-outline-danger'); 
+        btn.onclick = () => { 
+          if (confirm('Logout?')) { 
+            localStorage.removeItem('cj_current'); 
+            updateUI(); 
+          } 
+        };
+      } else { 
+        btn.textContent = 'Login'; 
+        btn.classList.remove('btn-outline-danger'); 
+        btn.classList.add('btn-outline-primary'); 
+        btn.onclick = () => { 
+          new bootstrap.Modal(document.getElementById('loginModal')).show(); 
+        }; 
+      }
+    }
+
+    document.getElementById('refreshJobs').addEventListener('click', () => { 
+      renderJobsGrid(); 
+      renderAds(); 
+    });
+    
+    // Initialize
+    renderJobsGrid(); 
+    renderAds(); 
+    renderApplications(); 
+    updateUI();
+  </script>
+</body>
+</html>
