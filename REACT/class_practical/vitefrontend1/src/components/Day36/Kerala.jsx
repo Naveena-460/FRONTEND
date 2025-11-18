@@ -1,9 +1,10 @@
+import keralaimg from '../../assets/images/kerala.jpg'
 const Kerala = () => {
   return (
     <>
     <div id="Kerala" style={{ margin: "16px 0", padding: 10, background: "#f1f5ff", borderRadius: 6 }}>
       <h1>Kerala</h1>
-
+<img src={keralaimg} alt="img"/>
       <p>
         Kerala, known as "God’s Own Country", is one of India’s most scenic states with
         lush greenery, backwaters, hill stations, and rich cultural traditions. Tourism,

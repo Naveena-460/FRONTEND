@@ -1,11 +1,11 @@
-
+import kernatakaimg from '../../assets/images/karnataka.jpg'
 
 const Karnataka = () => {
   return (
     <>
       <div style={{ margin: "16px 0", padding: 10, background: "#f1f5ff", borderRadius: 6 }}>
         <h1>Karnataka</h1>
-
+<img src={kernatakaimg} alt="img"/>
         <p>
           Karnataka is a diverse state in South India known for its tech hubs, royal heritage,
           hill stations, and rich cultural traditions. Bengaluru (Bangalore) is the IT capital,

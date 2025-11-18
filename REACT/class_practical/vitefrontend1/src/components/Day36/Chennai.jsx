@@ -1,4 +1,4 @@
-
+import chennaiimg from '../../assets/images/chennai.jpg'
 const Chennai = () => {
   return (
      <>
@@ -16,14 +16,15 @@ export const Navbar = () => {
   return (
      <>
      <h1>Highlights of South India</h1>
-    <section style={{ margin: "16px 0", padding: 10, background: "#f1f5ff", borderRadius: 6 }}>
+    <section className="nav">
 
-      <nav>
-        <a href="#" style={{ marginRight: 8, textDecoration: "none", color: "#0b5ed7" }}>Chennai |</a>
-        <a href="#kerala" style={{ marginRight: 8, textDecoration: "none", color: "#0b5ed7" }}>Kerala |</a>
-        <a href="#karnataka" style={{ marginRight: 8, textDecoration: "none", color: "#0b5ed7" }}>Karnataka |</a>
+      <nav className='anchor'>
+        <a href="#">Chennai |</a>
+        <a href="#kerala">Kerala |</a>
+        <a href="#karnataka">Karnataka |</a>
       </nav>
 <h2>Chennai</h2>
+<img src={chennaiimg} alt='img'/>
         <p>
           Chennai is the capital of Tamil Nadu and a major metropolitan city in South India.
           It blends classical culture with a fast-growing technology and industrial economy.

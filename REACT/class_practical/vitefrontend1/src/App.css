@@ -1,0 +1,15 @@
+.nav{ 
+    margin: 16px 0;
+     padding: 10;
+    background: #f1f5ff;
+       border-radius: 6 ;
+
+    }
+
+.anchor{
+    margin-right: 8;
+    text-decoration: none;
+    color: #0b5ed7 ;
+        
+}
+
