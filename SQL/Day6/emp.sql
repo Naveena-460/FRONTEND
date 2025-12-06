@@ -97,4 +97,3 @@ FROM emp GROUP BY emp_dep HAVING COUNT(*) > 5 AND AVG(salary) > 60000;
 
 SELECT emp_dep, MAX(salary) AS max_salary
 FROM emp GROUP BY emp_dep HAVING MAX(salary) > 70000;
-
